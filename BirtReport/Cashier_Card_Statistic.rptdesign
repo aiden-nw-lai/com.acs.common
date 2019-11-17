@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">card_ctc_count</property>
+                    <expression name="expression">row["max_card_ctc"]-row["min_card_ctc"]+1</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">sam_ctc_count</property>
+                    <expression name="expression">row["max_sam_ctc"]-row["min_sam_ctc"]+1</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">sam_can_diff</property>
+                    <expression name="expression">row["card_ctc_count"]-row["sam_ctc_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">display_max_upload_date</property>
+                    <expression name="expression">var p_date = String(row["max_upload_date"]);&#13;
+&#13;
+var p_display = p_date.substr(0,4) + "/" + p_date.substr(4,2) + "/" + p_date.substr(6,2) + "(" +&#13;
+p_date.substr(8,2) + ":" +&#13;
+p_date.substr(10,2) + ":" +&#13;
+p_date.substr(12,2) + ")";&#13;
+p_display;</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">display_min_uploaddate</property>
+                    <expression name="expression">var p_date = String(row["min_upload_date"]);&#13;
+&#13;
+var p_display = p_date.substr(0,4) + "/" + p_date.substr(4,2) + "/" + p_date.substr(6,2) + "(" +&#13;
+p_date.substr(8,2) + ":" +&#13;
+p_date.substr(10,2) + ":" +&#13;
+p_date.substr(12,2) + ")";&#13;
+p_display;</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">display_min_tx_date</property>
+                    <expression name="expression">var p_date = String(row["min_txdate"]);&#13;
+&#13;
+var p_display = p_date.substr(0,4) + "/" + p_date.substr(4,2) + "/" + p_date.substr(6,2) + "(" +&#13;
+p_date.substr(8,2) + ":" +&#13;
+p_date.substr(10,2) + ":" +&#13;
+p_date.substr(12,2) + ")";&#13;
+p_display;</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">display_max_txdate</property>
+                    <expression name="expression">var p_date = String(row["min_txdate"]);&#13;
+&#13;
+var p_display = p_date.substr(0,4) + "/" + p_date.substr(4,2) + "/" + p_date.substr(6,2) + "(" +&#13;
+p_date.substr(8,2) + ":" +&#13;
+p_date.substr(10,2) + ":" +&#13;
+p_date.substr(12,2) + ")";&#13;
+p_display;</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">cardcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <text-property name="heading">cardcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">samcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">samcan</text-property>
+                    <text-property name="heading">samcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">min_upload_date</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">min_upload_date</text-property>
+                    <text-property name="heading">min_upload_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">max_upload_date</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">max_upload_date</text-property>
+                    <text-property name="heading">max_upload_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">min_txdate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">min_txdate</text-property>
+                    <text-property name="heading">min_txdate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">max_txdate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">max_txdate</text-property>
+                    <text-property name="heading">max_txdate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">max_card_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">max_card_ctc</text-property>
+                    <text-property name="heading">max_card_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">min_card_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">min_card_ctc</text-property>
+                    <text-property name="heading">min_card_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">max_sam_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">max_sam_ctc</text-property>
+                    <text-property name="heading">max_sam_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">min_sam_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">min_sam_ctc</text-property>
+                    <text-property name="heading">min_sam_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">counter</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">counter</text-property>
+                    <text-property name="heading">counter</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">cardcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">samcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">min_upload_date</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">max_upload_date</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">min_txdate</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">max_txdate</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">max_card_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">min_card_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">max_sam_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">min_sam_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">counter</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">card_ctc_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">sam_ctc_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">sam_can_diff</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">display_max_upload_date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">display_min_uploaddate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">display_min_tx_date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">display_max_txdate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">cardcan</property>
+                    <property name="nativeName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">samcan</property>
+                    <property name="nativeName">samcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">min_upload_date</property>
+                    <property name="nativeName">min_upload_date</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">max_upload_date</property>
+                    <property name="nativeName">max_upload_date</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">min_txdate</property>
+                    <property name="nativeName">min_txdate</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">max_txdate</property>
+                    <property name="nativeName">max_txdate</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">max_card_ctc</property>
+                    <property name="nativeName">max_card_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">min_card_ctc</property>
+                    <property name="nativeName">min_card_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">max_sam_ctc</property>
+                    <property name="nativeName">max_sam_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">min_sam_ctc</property>
+                    <property name="nativeName">min_sam_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">counter</property>
+                    <property name="nativeName">counter</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select jl.cardcan, jl.samcan, 
+       min(UploadDateReference) as min_upload_date, 
+       max(UploadDateReference) as max_upload_date, 
+       min(DateReference) as min_txdate,
+       max(DateReference) as max_txdate,
+       
+		max(cardctc) as max_card_ctc, 
+		min(cardctc) as min_card_ctc, 
+		max(samctc) as max_sam_ctc, 
+		min(samctc) as min_sam_ctc, count(*) as counter
+from txnJournal jl (READPAST)
+inner join (
+	select cardcan from txnJournal (READPAST)
+	 --where txnTypeCode = 211 and tickettypecode = 195 
+	  group by cardcan
+) cashierCard on cashiercard.cardcan = jl.cardcan
+group by jl.cardcan, jl.samcan
+order by jl.cardcan, jl.samcan]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUPLICATION COUNT</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUPLICATION COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUPLICATION COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCAN</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCAN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCAN</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCTC</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="438">
+            <column id="439"/>
+            <column id="440"/>
+            <column id="441"/>
+            <row id="442">
+                <cell id="443">
+                    <data id="95">
+                        <property name="fontFamily">"Calibri"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">#000080</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">REPORTNAME</property>
+                                <text-property name="displayName">REPORTNAME</text-property>
+                                <expression name="expression" type="javascript">vars["REPORTNAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">REPORTNAME</property>
+                    </data>
+                </cell>
+                <cell id="444">
+                    <label id="446">
+                        <property name="fontFamily">"Calibri"</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">#004080</property>
+                        <property name="textAlign">right</property>
+                        <text-property name="text">Detail</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">DUPLICATION_CTC.rptdesign</property>
+                                <property name="targetWindow">_blank</property>
+                                <property name="targetFileType">report-design</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">Starting Date</property>
+                                        <simple-property-list name="expression">
+                                            <value type="javascript">19700101</value>
+                                        </simple-property-list>
+                                    </structure>
+                                    <structure>
+                                        <property name="paramName">Ending Date</property>
+                                        <simple-property-list name="expression">
+                                            <value type="javascript">29990101</value>
+                                        </simple-property-list>
+                                    </structure>
+                                    <structure>
+                                        <property name="paramName">Duplication count</property>
+                                        <simple-property-list name="expression">
+                                            <value type="javascript">2</value>
+                                        </simple-property-list>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="445"/>
+            </row>
+        </grid>
+        <table id="163">
+            <property name="width">7.510416666666667in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">cardcan</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <expression name="expression" type="javascript">vars["RECORD_COUNT"]++;&#13;
+vars["Group_Count"]++;&#13;
+dataSetRow["cardcan"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">samcan</property>
+                    <text-property name="displayName">samcan</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["samcan"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">counter</property>
+                    <text-property name="displayName">counter</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["counter"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">min_card_ctc</property>
+                    <text-property name="displayName">min_card_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["min_card_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">max_card_ctc</property>
+                    <text-property name="displayName">max_card_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["max_card_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">max_sam_ctc</property>
+                    <text-property name="displayName">max_sam_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["max_sam_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">min_sam_ctc</property>
+                    <text-property name="displayName">min_sam_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["min_sam_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">display_max_upload_date</property>
+                    <text-property name="displayName">display_max_upload_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["display_max_upload_date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sam_ctc_count</property>
+                    <text-property name="displayName">sam_ctc_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sam_ctc_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">card_ctc_count</property>
+                    <text-property name="displayName">card_ctc_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["card_ctc_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">sam_can_diff</property>
+                    <text-property name="displayName">sam_can_diff</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sam_can_diff"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">display_min_tx_date</property>
+                    <text-property name="displayName">display_min_tx_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["display_min_tx_date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">display_min_uploaddate</property>
+                    <text-property name="displayName">display_min_uploaddate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["display_min_uploaddate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">display_max_txdate</property>
+                    <text-property name="displayName">display_max_txdate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["display_max_txdate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <column id="187">
+                <property name="textAlign">left</property>
+                <property name="width">1.6041666666666667in</property>
+            </column>
+            <column id="451">
+                <property name="textAlign">right</property>
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <column id="188">
+                <property name="textAlign">right</property>
+                <property name="width">0.9375in</property>
+            </column>
+            <column id="460">
+                <property name="textAlign">right</property>
+                <property name="width">1.0104166666666667in</property>
+            </column>
+            <column id="464">
+                <property name="textAlign">right</property>
+                <property name="width">1in</property>
+            </column>
+            <column id="468">
+                <property name="textAlign">right</property>
+                <property name="width">0.6770833333333334in</property>
+            </column>
+            <column id="484">
+                <property name="textAlign">right</property>
+                <property name="width">0.6770833333333334in</property>
+            </column>
+            <column id="480">
+                <property name="textAlign">right</property>
+                <property name="width">0.6770833333333334in</property>
+            </column>
+            <column id="476">
+                <property name="textAlign">right</property>
+                <property name="width">0.7708333333333334in</property>
+            </column>
+            <column id="494">
+                <property name="textAlign">right</property>
+                <property name="width">0.7708333333333334in</property>
+            </column>
+            <column id="502">
+                <property name="textAlign">right</property>
+                <property name="width">1.4791666666666667in</property>
+            </column>
+            <column id="518">
+                <property name="textAlign">right</property>
+                <property name="width">1.09375in</property>
+            </column>
+            <header>
+                <row id="164">
+                    <property name="verticalAlign">bottom</property>
+                    <cell id="165">
+                        <label id="166">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">CARDCAN</text-property>
+                        </label>
+                    </cell>
+                    <cell id="448">
+                        <label id="452">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">Sam Can</text-property>
+                        </label>
+                    </cell>
+                    <cell id="167">
+                        <label id="455">
+                            <text-property name="text">counter</text-property>
+                        </label>
+                    </cell>
+                    <cell id="457">
+                        <label id="469">
+                            <text-property name="text">Card &#13;
+CTC&#13;
+(MIN)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="461">
+                        <label id="471">
+                            <text-property name="text">Card&#13;
+CTC&#13;
+(Max)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="465">
+                        <label id="489">
+                            <text-property name="text">Card&#13;
+CTC&#13;
+#</text-property>
+                        </label>
+                    </cell>
+                    <cell id="481">
+                        <label id="485">
+                            <text-property name="text">SAM&#13;
+CTC&#13;
+(MIN)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="477">
+                        <label id="487">
+                            <text-property name="text">SAM&#13;
+CTC&#13;
+(Max)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="473">
+                        <label id="495">
+                            <text-property name="text">SAM&#13;
+CTC&#13;
+#</text-property>
+                        </label>
+                    </cell>
+                    <cell id="491">
+                        <label id="497">
+                            <text-property name="text">SAM-CAN&#13;
+(DIFF)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="499">
+                        <label id="521">
+                            <text-property name="text">Update&#13;
+Date&#13;
+(Min/Max)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="515">
+                        <label id="519">
+                            <text-property name="text">Tx&#13;
+Date&#13;
+(Min/Max)</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="546">
+                <property name="groupName">CardCanBreak</property>
+                <expression name="keyExpr" type="javascript">row["cardcan"]</expression>
+                <expression name="bookmark" type="javascript">row["cardcan"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["cardcan"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="547">
+                        <cell id="548">
+                            <property name="colSpan">3</property>
+                            <property name="rowSpan">1</property>
+                            <text-data id="580">
+                                <expression name="valueExpr">row["cardcan"]</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                        <cell id="551"/>
+                        <cell id="552"/>
+                        <cell id="553"/>
+                        <cell id="554"/>
+                        <cell id="555"/>
+                        <cell id="556"/>
+                        <cell id="557"/>
+                        <cell id="558"/>
+                        <cell id="559"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="562">
+                        <cell id="563"/>
+                        <cell id="564">
+                            <property name="colSpan">4</property>
+                            <property name="rowSpan">1</property>
+                            <text-data id="581">
+                                <expression name="valueExpr">vars["RECORD_COUNT"]=vars["RECORD_COUNT"]+vars["Group_Count"];&#13;
+var p_display = vars["Group_Count"];&#13;
+vars["Group_Count"] = 0;&#13;
+p_display</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                        <cell id="568"/>
+                        <cell id="569"/>
+                        <cell id="570"/>
+                        <cell id="571"/>
+                        <cell id="572"/>
+                        <cell id="573"/>
+                        <cell id="574"/>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="173">
+                    <property name="borderBottomColor">#9D9D9D</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#B4B4B4</property>
+                    <property name="borderLeftStyle">dashed</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#B4B4B4</property>
+                    <property name="borderRightStyle">dashed</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#9D9D9D</property>
+                    <property name="borderTopStyle">dotted</property>
+                    <property name="borderTopWidth">thin</property>
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">ne</property>
+                            <property name="backgroundColor">#E1E1E1</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="174">
+                        <text-data id="585">
+                            <expression name="valueExpr">vars["Group_Count"]++;&#13;
+row["cardcan"]</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                        <label id="584">
+                            <text-property name="text">trace</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">carddetail_rpt.rptdesign</property>
+                                    <property name="targetWindow">_blank</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">CardCan</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">row["cardcan"]</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">Starting CTC</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"0"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </label>
+                    </cell>
+                    <cell id="449">
+                        <data id="527">
+                            <property name="resultSetColumn">samcan</property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">samDetail_bytxdate.rptdesign</property>
+                                    <property name="targetWindow">_blank</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">samcan</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">row["samcan"]</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">ST_SAMCTC</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">0</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">END_SAMCTC</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">999999999999</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">SORTING_SEQ1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">1</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">SORTING_SEQ2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">3</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </data>
+                        <label id="587">
+                            <text-property name="text">cardcan grouop by sam</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">carddetail_rpt.rptdesign</property>
+                                    <property name="targetWindow">_blank</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">CardCan</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">row["cardcan"]</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">Starting CTC</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"0"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </label>
+                    </cell>
+                    <cell id="176">
+                        <data id="528">
+                            <list-property name="highlightRules">
+                                <structure>
+                                    <property name="operator">ne</property>
+                                    <expression name="testExpr" type="javascript">row["counter"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">row["card_ctc_count"]</value>
+                                    </simple-property-list>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">counter</property>
+                        </data>
+                    </cell>
+                    <cell id="458">
+                        <data id="529">
+                            <property name="resultSetColumn">min_card_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="462">
+                        <data id="530">
+                            <property name="resultSetColumn">max_card_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="466">
+                        <data id="540">
+                            <list-property name="highlightRules">
+                                <structure>
+                                    <property name="operator">ne</property>
+                                    <expression name="testExpr" type="javascript">row["counter"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">row["card_ctc_count"]</value>
+                                    </simple-property-list>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">card_ctc_count</property>
+                        </data>
+                    </cell>
+                    <cell id="482">
+                        <data id="532">
+                            <property name="resultSetColumn">min_sam_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="478">
+                        <data id="531">
+                            <property name="resultSetColumn">max_sam_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="474">
+                        <data id="539">
+                            <list-property name="highlightRules">
+                                <structure>
+                                    <property name="operator">ne</property>
+                                    <expression name="testExpr" type="javascript">row["card_ctc_count"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">row["sam_ctc_count"]</value>
+                                    </simple-property-list>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">sam_ctc_count</property>
+                        </data>
+                    </cell>
+                    <cell id="492">
+                        <data id="541">
+                            <list-property name="highlightRules">
+                                <structure>
+                                    <property name="operator">gt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">#FF0080</property>
+                                    <expression name="testExpr" type="javascript">row["sam_can_diff"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">0</value>
+                                    </simple-property-list>
+                                </structure>
+                                <structure>
+                                    <property name="operator">lt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">#FF0000</property>
+                                    <expression name="testExpr" type="javascript">row["sam_can_diff"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">0</value>
+                                    </simple-property-list>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">sam_can_diff</property>
+                        </data>
+                    </cell>
+                    <cell id="500">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">dashed</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="paddingTop">0pt</property>
+                        <property name="paddingLeft">0pt</property>
+                        <property name="paddingBottom">0pt</property>
+                        <property name="paddingRight">0pt</property>
+                        <data id="543">
+                            <property name="resultSetColumn">display_min_uploaddate</property>
+                        </data>
+                        <data id="538">
+                            <property name="resultSetColumn">display_max_upload_date</property>
+                        </data>
+                    </cell>
+                    <cell id="516">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">none</property>
+                        <property name="paddingTop">0pt</property>
+                        <property name="paddingLeft">0pt</property>
+                        <property name="paddingBottom">0pt</property>
+                        <property name="paddingRight">0pt</property>
+                        <data id="542">
+                            <property name="resultSetColumn">display_min_tx_date</property>
+                        </data>
+                        <data id="544">
+                            <property name="resultSetColumn">display_max_txdate</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="182">
+                    <cell id="183"/>
+                    <cell id="450">
+                        <data id="545">
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">RECORD_COUNT</property>
+                                    <text-property name="displayName">RECORD_COUNT</text-property>
+                                    <expression name="expression" type="javascript">vars["RECORD_COUNT"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">RECORD_COUNT</property>
+                        </data>
+                    </cell>
+                    <cell id="184"/>
+                    <cell id="459"/>
+                    <cell id="463"/>
+                    <cell id="467"/>
+                    <cell id="483"/>
+                    <cell id="479"/>
+                    <cell id="475"/>
+                    <cell id="493"/>
+                    <cell id="501"/>
+                    <cell id="517"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="REPORTNAME">
+            <expression name="value" type="javascript">"Cashier Card Summary "</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="RECORD_COUNT">
+            <expression name="value" type="javascript">0</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="Group_Count">
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

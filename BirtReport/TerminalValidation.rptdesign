@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">Data Cube.Data Set.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.Data Set.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="Data Cube.Data Set.x">135</property>
+    <property name="Data Cube.Data Set.y">80</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="st_upload_date" id="453">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">20160501</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="ed_upload_date" id="552">
+            <text-property name="promptText">end upload Date(YYYYMMDD)</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">20160501</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.97:1433;DatabaseName=NGAL15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION_97_NG.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set with Problem" id="809">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Display_Max_Uploaddate</property>
+                    <expression name="expression">String(row["max_uploaddate"]).substr(0,4) + "-"  + String(row["max_uploaddate"]).substr(4,2) + "-"  + String(row["max_uploaddate"]).substr(6,2)</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Display_min_uploaddate</property>
+                    <expression name="expression">String(row["min_uploaddate"]).substr(0,4) + "-" + String(row["min_uploaddate"]).substr(4,2) + "-" + String(row["min_uploaddate"]).substr(6,2)</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">tx_samcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">tx_samcan</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">tx_samcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TxnTypecode</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TxnTypecode</text-property>
+                    <text-property name="heading">TxnTypecode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">min_uploaddate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">min_uploaddate</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">min_uploaddate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">max_uploaddate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">max_uploaddate</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">max_uploaddate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">tx_terminal</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">tx_terminal</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">tx_terminal</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">match_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">match_count</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">match_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">nonmatch_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">nonmatch_count</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">nonmatch_count</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">st_date</property>
+                    <property name="paramName">st_upload_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">20160501</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ed_date</property>
+                    <property name="paramName">ed_upload_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">20160501</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">tx_samcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TxnTypecode</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">min_uploaddate</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">max_uploaddate</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">tx_terminal</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">match_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">nonmatch_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Display_Max_Uploaddate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Display_min_uploaddate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">tx_samcan</property>
+                    <property name="nativeName">tx_samcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TxnTypecode</property>
+                    <property name="nativeName">TxnTypecode</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-6</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">min_uploaddate</property>
+                    <property name="nativeName">min_uploaddate</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">max_uploaddate</property>
+                    <property name="nativeName">max_uploaddate</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">tx_terminal</property>
+                    <property name="nativeName">tx_terminal</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">match_count</property>
+                    <property name="nativeName">match_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">nonmatch_count</property>
+                    <property name="nativeName">nonmatch_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select src.samcan as tx_samcan, src.TxnTypecode, src.min_uploaddate, src.max_uploaddate, mas1.TerminalCode as tx_terminal, 
+       src.match_count, src.nonmatch_count from
+( 
+select     samcan, TxnTypecode, min(uploaddateREf) as min_uploaddate, 
+			max(uploaddateREf) as max_uploaddate, 
+			count(*) as counter,
+			sum(case  when uploadsamcan=samcan then  1 else 0 end) as match_count, 
+			sum(case when uploadsamcan !=samcan then  1 else 0 end ) as nonmatch_count
+			from txnjournal
+			where uploaddateREf is not null and
+			uploaddateREf >= ? and uploaddateREf <= ?  
+			    group by  samcan , TxnTypecode
+			) as src left join terminalsam mas1
+			on mas1.SamCAN = src.samcan
+			where src.match_count =0]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUPLICATION COUNT</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUPLICATION COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUPLICATION COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCAN</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCAN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCAN</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCTC</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="861">
+            <property name="dimensions">
+                <tabular-dimension name="Tx_SAM_Group" id="864">
+                    <property name="isTimeType">false</property>
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="865">
+                            <property name="levels">
+                                <tabular-level name="Display_SAM" id="878">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Display_SAM</property>
+                                </tabular-level>
+                                <tabular-level name="Display_Upload_Date" id="917">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Display_Upload_Date</property>
+                                </tabular-level>
+                                <tabular-level name="Display_TXDISPLAY" id="879">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Display_TXDISPLAY</property>
+                                </tabular-level>
+                                <tabular-level name="upload_samcan" id="880">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">upload_samcan</property>
+                                </tabular-level>
+                                <tabular-level name="upload_terminal" id="881">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">upload_terminal</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Transcation_code_Group" id="1105">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="1106">
+                            <property name="levels">
+                                <tabular-level name="TxnTypecode" id="1107">
+                                    <property name="dataType">integer</property>
+                                    <property name="columnName">TxnTypecode</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="883">
+                    <property name="measures">
+                        <tabular-measure name="TxnTypecode" id="884">
+                            <expression name="measureExpression" type="javascript">dataSetRow["TxnTypecode"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="match_count" id="885">
+                            <expression name="measureExpression" type="javascript">dataSetRow["match_count"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="nonmatch_count" id="886">
+                            <expression name="measureExpression" type="javascript">dataSetRow["nonmatch_count"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="Display_SAM" id="1044">
+                            <property name="function">count</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["Display_SAM"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="Display_TXDISPLAY" id="1045">
+                            <property name="function">count</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["Display_TXDISPLAY"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="Display_Upload_Date" id="1046">
+                            <property name="function">count</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["Display_Upload_Date"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="autoKey">true</property>
+        </tabular-cube>
+        <tabular-cube name="With Problem" id="1251">
+            <property name="dimensions">
+                <tabular-dimension name="Group_SAM2" id="1254">
+                    <property name="defaultHierarchy">NewTabularHierarchy2</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy2" id="1255">
+                            <property name="levels">
+                                <tabular-level name="tx_samcan" id="1256">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">tx_samcan</property>
+                                </tabular-level>
+                                <tabular-level name="tx_terminal" id="1257">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">tx_terminal</property>
+                                </tabular-level>
+                                <tabular-level name="Display_Max_Uploaddate" id="1339">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Display_Max_Uploaddate</property>
+                                </tabular-level>
+                                <tabular-level name="Display_min_uploaddate" id="1340">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Display_min_uploaddate</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Group" id="1306">
+                    <property name="defaultHierarchy">NewTabularHierarchy3</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy3" id="1307">
+                            <property name="levels">
+                                <tabular-level name="TxnTypecode" id="1308">
+                                    <property name="dataType">integer</property>
+                                    <property name="columnName">TxnTypecode</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field1" id="1289">
+                    <property name="measures">
+                        <tabular-measure name="match_count1" id="1290">
+                            <expression name="measureExpression" type="javascript">dataSetRow["match_count"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="nonmatch_count1" id="1291">
+                            <expression name="measureExpression" type="javascript">dataSetRow["nonmatch_count"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field2" id="1304"/>
+            </property>
+            <property name="dataSet">Data Set with Problem</property>
+        </tabular-cube>
+    </cubes>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="1250">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">15pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#000080</property>
+            <property name="textUnderline">underline</property>
+            <text-property name="text">Terminal with Problem</text-property>
+        </label>
+        <text-data id="1406">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#000040</property>
+            <expression name="valueExpr">String(params["st_upload_date"]).substr(6,2) + "." + String(params["st_upload_date"]).substr(4,2) + "." + String(params["st_upload_date"]).substr(0,4) + "-" + String(params["ed_upload_date"]).substr(6,2) + "." + String(params["ed_upload_date"]).substr(4,2) + "." + String(params["ed_upload_date"]).substr(0,4);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1341">
+            <property name="cube">With Problem</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="1369">
+                    <property name="measure">match_count1</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1370">
+                            <property name="aggregationOnRow">Group_SAM2/Display_min_uploaddate</property>
+                            <property name="aggregationOnColumn">Group/TxnTypecode</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="width">50px</property>
+                            <property name="content">
+                                <data id="1371">
+                                    <property name="backgroundColor">#C9DBF1</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">match_count1_Group_SAM2/Display_min_uploaddate_Group/TxnTypecode</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="1385">
+                            <property name="aggregationOnRow">Group_SAM2/Display_min_uploaddate</property>
+                            <property name="textAlign">right</property>
+                            <property name="width">56px</property>
+                            <property name="content">
+                                <data id="1386">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundColor">#EAEAEA</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">match_count1_Group_SAM2/Display_min_uploaddate</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="1397">
+                            <property name="backgroundColor">#8ABCE1</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="1398">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">match_count1</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="1401">
+                            <property name="aggregationOnColumn">Group/TxnTypecode</property>
+                            <property name="backgroundColor">#8ABCE1</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="1402">
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">match_count1_Group/TxnTypecode</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1372">
+                            <property name="content">
+                                <label id="1373">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <text-property name="text">SAME SAM</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#D4D4D4</property>
+                        </extended-item>
+                        <extended-item extensionName="CrosstabCell" id="1389">
+                            <property name="content">
+                                <label id="1394">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundColor">#D4D4D4</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <text-property name="text">SAME SAM</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#D4D4D4</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1378">
+                    <property name="measure">nonmatch_count1</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1379">
+                            <property name="aggregationOnRow">Group_SAM2/Display_min_uploaddate</property>
+                            <property name="aggregationOnColumn">Group/TxnTypecode</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="width">50px</property>
+                            <property name="content">
+                                <data id="1380">
+                                    <property name="backgroundColor">#C9DBF1</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">nonmatch_count1_Group_SAM2/Display_min_uploaddate_Group/TxnTypecode</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="1387">
+                            <property name="aggregationOnRow">Group_SAM2/Display_min_uploaddate</property>
+                            <property name="textAlign">right</property>
+                            <property name="width">56px</property>
+                            <property name="content">
+                                <data id="1388">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundColor">#EAEAEA</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">nonmatch_count1_Group_SAM2/Display_min_uploaddate</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="1399">
+                            <property name="backgroundColor">#8ABCE1</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="1400">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">nonmatch_count1</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="1403">
+                            <property name="aggregationOnColumn">Group/TxnTypecode</property>
+                            <property name="backgroundColor">#8ABCE1</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="1404">
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="width">50px</property>
+                                    <property name="resultSetColumn">nonmatch_count1_Group/TxnTypecode</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1381">
+                            <property name="content">
+                                <label id="1382">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <text-property name="text">Other</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#D4D4D4</property>
+                        </extended-item>
+                        <extended-item extensionName="CrosstabCell" id="1391">
+                            <property name="content">
+                                <label id="1395">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundColor">#D4D4D4</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <text-property name="text">Other</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#D4D4D4</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="1343">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="1396">
+                            <property name="content">
+                                <label id="1405">
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">right</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#8ABCE1</property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1344">
+                            <property name="dimension">Group_SAM2</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View6" id="1345">
+                                    <property name="level">Group_SAM2/tx_samcan</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1346">
+                                            <property name="content">
+                                                <data name="tx_samcan" id="1347">
+                                                    <property name="fontFamily">"Calibri"</property>
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="textAlign">left</property>
+                                                    <property name="resultSetColumn">tx_samcan</property>
+                                                </data>
+                                            </property>
+                                            <property name="borderLeftStyle">dotted</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderLeftColor">#DFDFDF</property>
+                                            <property name="borderBottomStyle">dotted</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderBottomColor">#C0C0C0</property>
+                                            <property name="width">135px</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View7" id="1349">
+                                    <property name="level">Group_SAM2/tx_terminal</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1350">
+                                            <property name="content">
+                                                <data name="tx_terminal" id="1352">
+                                                    <property name="fontFamily">"Calibri"</property>
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">tx_terminal</property>
+                                                </data>
+                                            </property>
+                                            <property name="borderLeftStyle">dotted</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderLeftColor">#DFDFDF</property>
+                                            <property name="borderBottomStyle">dotted</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderBottomColor">#C0C0C0</property>
+                                            <property name="width">72px</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View8" id="1354">
+                                    <property name="level">Group_SAM2/Display_Max_Uploaddate</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1355">
+                                            <property name="content">
+                                                <data name="Display_Max_Uploaddate" id="1357">
+                                                    <property name="fontFamily">"Calibri"</property>
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <property name="width">70px</property>
+                                                    <property name="resultSetColumn">Display_Max_Uploaddate</property>
+                                                </data>
+                                            </property>
+                                            <property name="textAlign">center</property>
+                                            <property name="borderLeftStyle">dotted</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderLeftColor">#DFDFDF</property>
+                                            <property name="borderBottomStyle">dotted</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderBottomColor">#C0C0C0</property>
+                                            <property name="width">50px</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View9" id="1359">
+                                    <property name="level">Group_SAM2/Display_min_uploaddate</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1360">
+                                            <property name="content">
+                                                <data name="Display_min_uploaddate" id="1362">
+                                                    <property name="fontFamily">"Calibri"</property>
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="width">70px</property>
+                                                    <property name="resultSetColumn">Display_min_uploaddate</property>
+                                                </data>
+                                            </property>
+                                            <property name="textAlign">center</property>
+                                            <property name="borderLeftStyle">dotted</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderLeftColor">#DFDFDF</property>
+                                            <property name="borderBottomStyle">dotted</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderBottomColor">#C0C0C0</property>
+                                            <property name="width">50px</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="grandTotalLocation">after</property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="1364">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="1384">
+                            <property name="content">
+                                <label id="1393">
+                                    <property name="backgroundAttachment">scroll</property>
+                                    <property name="backgroundColor">#D4D4D4</property>
+                                    <property name="backgroundPositionX">0%</property>
+                                    <property name="backgroundPositionY">0%</property>
+                                    <property name="backgroundRepeat">repeat</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="fontStyle">normal</property>
+                                    <property name="fontVariant">normal</property>
+                                    <property name="color">black</property>
+                                    <property name="textLineThrough">none</property>
+                                    <property name="textOverline">none</property>
+                                    <property name="textUnderline">none</property>
+                                    <property name="borderBottomColor">black</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="borderLeftColor">black</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderLeftWidth">medium</property>
+                                    <property name="borderRightColor">black</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderRightWidth">medium</property>
+                                    <property name="borderTopColor">black</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="borderTopWidth">medium</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginLeft">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                    <property name="paddingTop">1pt</property>
+                                    <property name="paddingLeft">1pt</property>
+                                    <property name="paddingBottom">1pt</property>
+                                    <property name="paddingRight">1pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="letterSpacing">normal</property>
+                                    <property name="lineHeight">normal</property>
+                                    <property name="orphans">2</property>
+                                    <property name="textTransform">none</property>
+                                    <property name="whiteSpace">normal</property>
+                                    <property name="widows">2</property>
+                                    <property name="wordSpacing">normal</property>
+                                    <property name="display">block</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakInside">auto</property>
+                                    <property name="showIfBlank">false</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="overflow">hidden</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#D4D4D4</property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1365">
+                            <property name="dimension">Group</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View10" id="1366">
+                                    <property name="level">Group/TxnTypecode</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1367">
+                                            <property name="content">
+                                                <data name="TxnTypecode1" id="1368">
+                                                    <property name="backgroundAttachment">scroll</property>
+                                                    <property name="backgroundPositionX">0%</property>
+                                                    <property name="backgroundPositionY">0%</property>
+                                                    <property name="backgroundRepeat">repeat</property>
+                                                    <property name="fontFamily">"Calibri"</property>
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="fontWeight">normal</property>
+                                                    <property name="fontStyle">normal</property>
+                                                    <property name="fontVariant">normal</property>
+                                                    <property name="color">black</property>
+                                                    <property name="textLineThrough">none</property>
+                                                    <property name="textOverline">none</property>
+                                                    <property name="textUnderline">none</property>
+                                                    <property name="borderBottomColor">black</property>
+                                                    <property name="borderBottomStyle">none</property>
+                                                    <property name="borderBottomWidth">medium</property>
+                                                    <property name="borderLeftColor">black</property>
+                                                    <property name="borderLeftStyle">none</property>
+                                                    <property name="borderLeftWidth">medium</property>
+                                                    <property name="borderRightColor">black</property>
+                                                    <property name="borderRightStyle">none</property>
+                                                    <property name="borderRightWidth">medium</property>
+                                                    <property name="borderTopColor">black</property>
+                                                    <property name="borderTopStyle">none</property>
+                                                    <property name="borderTopWidth">medium</property>
+                                                    <property name="marginTop">0pt</property>
+                                                    <property name="marginLeft">0pt</property>
+                                                    <property name="marginBottom">0pt</property>
+                                                    <property name="marginRight">0pt</property>
+                                                    <property name="paddingTop">1pt</property>
+                                                    <property name="paddingLeft">1pt</property>
+                                                    <property name="paddingBottom">1pt</property>
+                                                    <property name="paddingRight">1pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <property name="letterSpacing">normal</property>
+                                                    <property name="lineHeight">normal</property>
+                                                    <property name="orphans">2</property>
+                                                    <property name="textTransform">none</property>
+                                                    <property name="whiteSpace">normal</property>
+                                                    <property name="widows">2</property>
+                                                    <property name="wordSpacing">normal</property>
+                                                    <property name="display">block</property>
+                                                    <property name="pageBreakAfter">auto</property>
+                                                    <property name="pageBreakBefore">auto</property>
+                                                    <property name="pageBreakInside">auto</property>
+                                                    <property name="showIfBlank">false</property>
+                                                    <property name="canShrink">false</property>
+                                                    <property name="overflow">hidden</property>
+                                                    <property name="resultSetColumn">TxnTypecode</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#D4D4D4</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="grandTotalLocation">after</property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="1374">
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1375">
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1376">
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1377">
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1342">
+                    <property name="content">
+                        <label id="1348">
+                            <property name="fontFamily">"Calibri"</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">SAM CAN</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderRightColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1351">
+                    <property name="content">
+                        <label id="1353">
+                            <property name="fontFamily">"Calibri"</property>
+                            <property name="fontSize">8pt</property>
+                            <text-property name="text">Terminal</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1356">
+                    <property name="content">
+                        <label id="1358">
+                            <property name="backgroundColor">#D4D4D4</property>
+                            <property name="fontFamily">"Calibri"</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">70px</property>
+                            <text-property name="text">Max Upload Date</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1361">
+                    <property name="content">
+                        <label id="1363">
+                            <property name="fontFamily">"Calibri"</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">70px</property>
+                            <text-property name="text">Min Upload Date</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#D4D4D4</property>
+                    <property name="borderLeftStyle">dotted</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderLeftColor">#DFDFDF</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">tx_samcan</property>
+                    <expression name="expression">dimension["Group_SAM2"]["tx_samcan"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">tx_terminal</property>
+                    <expression name="expression">dimension["Group_SAM2"]["tx_terminal"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Display_Max_Uploaddate</property>
+                    <expression name="expression">dimension["Group_SAM2"]["Display_Max_Uploaddate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Display_min_uploaddate</property>
+                    <expression name="expression">dimension["Group_SAM2"]["Display_min_uploaddate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TxnTypecode</property>
+                    <expression name="expression">dimension["Group"]["TxnTypecode"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">match_count1_Group_SAM2/Display_min_uploaddate_Group/TxnTypecode</property>
+                    <expression name="expression">measure["match_count1"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group_SAM2/Display_min_uploaddate</value>
+                        <value>Group/TxnTypecode</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">nonmatch_count1_Group_SAM2/Display_min_uploaddate_Group/TxnTypecode</property>
+                    <expression name="expression">measure["nonmatch_count1"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group_SAM2/Display_min_uploaddate</value>
+                        <value>Group/TxnTypecode</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">match_count1_Group_SAM2/Display_min_uploaddate</property>
+                    <expression name="expression">measure["match_count1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group_SAM2/Display_min_uploaddate</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">nonmatch_count1_Group_SAM2/Display_min_uploaddate</property>
+                    <expression name="expression">measure["nonmatch_count1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group_SAM2/Display_min_uploaddate</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">match_count1</property>
+                    <expression name="expression">measure["match_count1"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">nonmatch_count1</property>
+                    <expression name="expression">measure["nonmatch_count1"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">match_count1_Group/TxnTypecode</property>
+                    <expression name="expression">measure["match_count1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/TxnTypecode</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">nonmatch_count1_Group/TxnTypecode</property>
+                    <expression name="expression">measure["nonmatch_count1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/TxnTypecode</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="REPORTNAME">
+            <expression name="value" type="javascript">"Daily Upload Statistic " + String(params["st_upload_date"].value).substr(0,4) + "-" +  String(params["st_upload_date"].value).substr(4 ,2) +  "-" +  String(params["st_upload_date"].value).substr(6 ,2)  +" to " +String(params["ed_upload_date"].value).substr(0,4) + "-" + String(params["ed_upload_date"].value).substr(4,2) + "-" + String(params["ed_upload_date"].value).substr(6,2)</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="RECORD_COUNT">
+            <expression name="value" type="javascript">0</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

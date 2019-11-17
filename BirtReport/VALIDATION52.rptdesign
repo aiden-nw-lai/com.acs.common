@@ -1,0 +1,1657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="cardnumber" id="217">
+            <text-property name="promptText">Support wild card (Pls use '%' for the wild card search)</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="STATISTIC" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">cardcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <text-property name="heading">cardcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">period_analysis_month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">period_analysis_month</text-property>
+                    <text-property name="heading">period_analysis_month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">max_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">max_ctc</text-property>
+                    <text-property name="heading">max_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_counter</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_counter</text-property>
+                    <text-property name="heading">total_counter</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">min_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">min_ctc</text-property>
+                    <text-property name="heading">min_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">counter</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">counter</text-property>
+                    <text-property name="heading">counter</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cash_transaction_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">cash_transaction_count</text-property>
+                    <text-property name="heading">cash_transaction_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cash_transaction_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">cash_transaction_amount</text-property>
+                    <text-property name="heading">cash_transaction_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topuponly_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topuponly_count</text-property>
+                    <text-property name="heading">topuponly_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topuponly_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topuponly_amount</text-property>
+                    <text-property name="heading">topuponly_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topuponly193_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topuponly193_count</text-property>
+                    <text-property name="heading">topuponly193_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_IN</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_IN</text-property>
+                    <text-property name="heading">CASH_IN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_IN_COUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_IN_COUNT</text-property>
+                    <text-property name="heading">CASH_IN_COUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_OUT_COUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_OUT_COUNT</text-property>
+                    <text-property name="heading">CASH_OUT_COUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_OUT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_OUT</text-property>
+                    <text-property name="heading">CASH_OUT</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">cardcan</property>
+                    <property name="paramName">cardnumber</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="constant">0004113A0F000448</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">cardcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">period_analysis_month</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">max_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">total_counter</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">min_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">counter</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">cash_transaction_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">cash_transaction_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">topuponly_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">topuponly_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">topuponly193_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">CASH_IN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">CASH_IN_COUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">CASH_OUT_COUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">CASH_OUT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">cardcan</property>
+                    <property name="nativeName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">period_analysis_month</property>
+                    <property name="nativeName">period_analysis_month</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">max_ctc</property>
+                    <property name="nativeName">max_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">total_counter</property>
+                    <property name="nativeName">total_counter</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">min_ctc</property>
+                    <property name="nativeName">min_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">counter</property>
+                    <property name="nativeName">counter</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">cash_transaction_count</property>
+                    <property name="nativeName">cash_transaction_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">cash_transaction_amount</property>
+                    <property name="nativeName">cash_transaction_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">topuponly_count</property>
+                    <property name="nativeName">topuponly_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">topuponly_amount</property>
+                    <property name="nativeName">topuponly_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">topuponly193_count</property>
+                    <property name="nativeName">topuponly193_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">CASH_IN</property>
+                    <property name="nativeName">CASH_IN</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">CASH_IN_COUNT</property>
+                    <property name="nativeName">CASH_IN_COUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">CASH_OUT_COUNT</property>
+                    <property name="nativeName">CASH_OUT_COUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">CASH_OUT</property>
+                    <property name="nativeName">CASH_OUT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[       
+           select cardcan, period_analysis_month, max(cardctc) as max_ctc, count(*) as total_counter,
+          min(cardctc) as min_ctc, count(*) as counter,
+           SUM(CASE WHEN TXNTYPECODE = '211' OR TXNTYPECODE = '195' THEN 1 ELSE 0 END
+				 	) 
+				  AS cash_transaction_count ,
+                 SUM(CASE WHEN TXNTYPECODE = '211' OR TXNTYPECODE = '195' THEN txnamount ELSE 0 END
+				 	) 
+				  AS cash_transaction_amount ,				  
+           SUM(CASE WHEN TXNTYPECODE = '210' THEN 1 ELSE 0 END
+				 	) 
+				  AS topuponly_count ,
+		    SUM(CASE WHEN TXNTYPECODE = '210' THEN txnamount ELSE 0 END
+				 	) 
+				  AS topuponly_amount,				  
+           SUM(CASE WHEN TXNTYPECODE = '193' THEN 1 ELSE 0 END
+				 	) 
+				  AS topuponly193_count ,
+				  
+           SUM(CASE WHEN TXNTYPECODE = '210' OR TXNTYPECODE = '209' or TXNTYPECODE = '193' OR TXNTYPECODE = '198' OR TXNTYPECODE = '196' THEN txnamount ELSE 0 END
+				 	) 
+				  AS CASH_IN ,
+		   SUM(CASE WHEN TXNTYPECODE = '210' OR TXNTYPECODE = '209' or TXNTYPECODE = '193' OR TXNTYPECODE = '198' OR TXNTYPECODE = '196' THEN 1 ELSE 0 END
+				 	) 
+				  AS CASH_IN_COUNT 				  
+				 , 
+				 SUM(
+				 CASE WHEN TXNTYPECODE = '177'  OR TXNTYPECODE = '211' or  TXNTYPECODE = '202'  or  TXNTYPECODE = '212' OR  TXNTYPECODE = '194' THEN 1 ELSE 0 END
+				 )
+				  AS CASH_OUT_COUNT	
+
+				 , 
+				 SUM(
+				 CASE WHEN TXNTYPECODE = '177'  OR TXNTYPECODE = '211' or  TXNTYPECODE = '202'  or  TXNTYPECODE = '212' OR  TXNTYPECODE = '194' THEN txnamount ELSE 0 END
+				 )
+				  AS CASH_OUT	
+         
+         
+         from txnJournal (readpast) --where period_analysis_month = 201601
+         WHERE cardcan like ?
+         Group by cardcan, period_analysis_month
+         order by cardcan, period_analysis_month
+         ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cardcan</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cardcan</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cardcan</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>max_ctc</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>max_ctc</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>max_ctc</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>total_counter</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>total_counter</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>total_counter</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>min_ctc</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>min_ctc</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>min_ctc</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>counter</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>counter</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>counter</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cash_transaction_count</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cash_transaction_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cash_transaction_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cash_transaction_amount</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cash_transaction_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cash_transaction_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topuponly_count</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topuponly_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topuponly_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topuponly_amount</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topuponly_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topuponly_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topuponly193_count</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topuponly193_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topuponly193_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_IN</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_IN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_IN</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_IN_COUNT</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_IN_COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_IN_COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_OUT</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_OUT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_OUT</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_OUT_COUNT</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_OUT_COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_OUT_COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <data id="218">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">13pt</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Report Name</property>
+                    <text-property name="displayName">Report Name</text-property>
+                    <expression name="expression" type="javascript">vars["Report Name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">Report Name</property>
+        </data>
+        <table id="6">
+            <property name="width">7.947916666666667in</property>
+            <property name="dataSet">STATISTIC</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">cardcan</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cardcan"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">max_ctc</property>
+                    <text-property name="displayName">max_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["max_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">total_counter</property>
+                    <text-property name="displayName">total_counter</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_counter"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">min_ctc</property>
+                    <text-property name="displayName">min_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["min_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">counter</property>
+                    <text-property name="displayName">counter</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["counter"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">cash_transaction_count</property>
+                    <text-property name="displayName">cash_transaction_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cash_transaction_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">cash_transaction_amount</property>
+                    <text-property name="displayName">cash_transaction_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cash_transaction_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">topuponly_count</property>
+                    <text-property name="displayName">topuponly_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topuponly_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">topuponly_amount</property>
+                    <text-property name="displayName">topuponly_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topuponly_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">topuponly193_count</property>
+                    <text-property name="displayName">topuponly193_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topuponly193_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">CASH_IN</property>
+                    <text-property name="displayName">CASH_IN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CASH_IN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">CASH_IN_COUNT</property>
+                    <text-property name="displayName">CASH_IN_COUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CASH_IN_COUNT"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">CASH_OUT</property>
+                    <text-property name="displayName">CASH_OUT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CASH_OUT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">CASH_OUT_COUNT</property>
+                    <text-property name="displayName">CASH_OUT_COUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CASH_OUT_COUNT"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <text-property name="displayName">month</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["cash_transaction_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">period_analysis_month</property>
+                    <text-property name="displayName">period_analysis_month</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["period_analysis_month"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["counter"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["cash_transaction_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_3</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["cash_transaction_amount"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_4</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["topuponly_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_5</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["CASH_IN"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_6</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["topuponly193_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_7</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["CASH_IN_COUNT"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_8</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["total_counter"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Agg_Total</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["counter"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Agg_total_tx_counter</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["cash_transaction_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">agg_topup_count</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["topuponly_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Agg_Cash_tx_amount</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["cash_transaction_amount"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">agg_cash_amt</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["CASH_IN"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">CashOut_amt</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["CASH_OUT"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Agg_193_count</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["topuponly193_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">agg_topupamt</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["topuponly_amount"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">agg_cash_in_count</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["CASH_IN_COUNT"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">agg_cash_out_count</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>cardcan</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["CASH_OUT_COUNT"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="80">
+                <property name="width">1.28125in</property>
+            </column>
+            <column id="81">
+                <property name="width">0.3229166666666667in</property>
+            </column>
+            <column id="82">
+                <property name="width">0.3020833333333333in</property>
+            </column>
+            <column id="83">
+                <property name="width">0.3958333333333333in</property>
+            </column>
+            <column id="84">
+                <property name="width">0.5in</property>
+            </column>
+            <column id="85">
+                <property name="width">0.5833333333333334in</property>
+            </column>
+            <column id="86">
+                <property name="width">0.4791666666666667in</property>
+            </column>
+            <column id="87">
+                <property name="width">0.7083333333333334in</property>
+            </column>
+            <column id="88">
+                <property name="width">0.5625in</property>
+            </column>
+            <column id="89">
+                <property name="width">0.5625in</property>
+            </column>
+            <column id="90">
+                <property name="textAlign">right</property>
+                <property name="width">0.5625in</property>
+            </column>
+            <column id="91">
+                <property name="textAlign">right</property>
+                <property name="width">0.5208333333333334in</property>
+            </column>
+            <column id="92">
+                <property name="textAlign">right</property>
+                <property name="width">0.6041666666666666in</property>
+            </column>
+            <column id="93">
+                <property name="textAlign">right</property>
+                <property name="width">0.5625in</property>
+            </column>
+            <header>
+                <row id="7">
+                    <property name="verticalAlign">bottom</property>
+                    <cell id="8">
+                        <label id="9">
+                            <text-property name="text">month</text-property>
+                        </label>
+                    </cell>
+                    <cell id="10">
+                        <label id="15">
+                            <text-property name="text">Min Ctc</text-property>
+                        </label>
+                    </cell>
+                    <cell id="12">
+                        <label id="11">
+                            <text-property name="text">Max Ctc</text-property>
+                        </label>
+                    </cell>
+                    <cell id="14">
+                        <label id="13">
+                            <text-property name="text">Total CTC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="16">
+                        <label id="17">
+                            <text-property name="text">Total Tx</text-property>
+                        </label>
+                    </cell>
+                    <cell id="18">
+                        <label id="19">
+                            <text-property name="text">Cash Tx Count</text-property>
+                        </label>
+                    </cell>
+                    <cell id="20">
+                        <label id="25">
+                            <text-property name="text">Topup&#13;
+ (#)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="22">
+                        <label id="21">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Cash &#13;
+Tx($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="24">
+                        <label id="31">
+                            <text-property name="text">Cash in ($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="26">
+                        <label id="35">
+                            <text-property name="text">Cash Out ($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="28">
+                        <label id="23">
+                            <text-property name="text">Topup&#13;
+($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="30">
+                        <label id="27">
+                            <text-property name="text">193 Count</text-property>
+                        </label>
+                    </cell>
+                    <cell id="32">
+                        <label id="29">
+                            <text-property name="text">Cash In#</text-property>
+                        </label>
+                    </cell>
+                    <cell id="34">
+                        <label id="33">
+                            <text-property name="text">Cash Out#</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="174">
+                <property name="groupName">cardcan</property>
+                <expression name="keyExpr" type="javascript">row["cardcan"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["cardcan"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="175">
+                        <cell id="176">
+                            <property name="colSpan">7</property>
+                            <property name="rowSpan">1</property>
+                            <data id="205">
+                                <property name="resultSetColumn">cardcan</property>
+                                <list-property name="action">
+                                    <structure>
+                                        <property name="linkType">drill-through</property>
+                                        <property name="reportName">carddetail_rpt.rptdesign</property>
+                                        <property name="targetWindow">_blank</property>
+                                        <property name="targetFileType">report-design</property>
+                                        <list-property name="paramBindings">
+                                            <structure>
+                                                <property name="paramName">CardCan</property>
+                                                <simple-property-list name="expression">
+                                                    <value type="javascript">row["cardcan"]</value>
+                                                </simple-property-list>
+                                            </structure>
+                                        </list-property>
+                                    </structure>
+                                </list-property>
+                            </data>
+                        </cell>
+                        <cell id="183"/>
+                        <cell id="184"/>
+                        <cell id="185"/>
+                        <cell id="186"/>
+                        <cell id="187"/>
+                        <cell id="188"/>
+                        <cell id="189"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="190">
+                        <property name="backgroundColor">#0080FF</property>
+                        <property name="height">0.21875in</property>
+                        <cell id="191">
+                            <label id="216">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontWeight">bold</property>
+                                <text-property name="text">Card Can Total</text-property>
+                            </label>
+                        </cell>
+                        <cell id="192"/>
+                        <cell id="193"/>
+                        <cell id="194">
+                            <property name="fontFamily">"Calibri"</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">right</property>
+                            <data id="220">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Aggregation_8</property>
+                            </data>
+                        </cell>
+                        <cell id="195">
+                            <data id="223">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Agg_Total</property>
+                            </data>
+                        </cell>
+                        <cell id="196">
+                            <data id="224">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Agg_total_tx_counter</property>
+                            </data>
+                        </cell>
+                        <cell id="197">
+                            <data id="225">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">agg_topup_count</property>
+                            </data>
+                        </cell>
+                        <cell id="198">
+                            <data id="226">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Agg_Cash_tx_amount</property>
+                            </data>
+                        </cell>
+                        <cell id="199">
+                            <data id="227">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">agg_cash_amt</property>
+                            </data>
+                        </cell>
+                        <cell id="200">
+                            <data id="228">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">CashOut_amt</property>
+                            </data>
+                        </cell>
+                        <cell id="201">
+                            <data id="230">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">agg_topupamt</property>
+                            </data>
+                        </cell>
+                        <cell id="202">
+                            <data id="229">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Agg_193_count</property>
+                            </data>
+                        </cell>
+                        <cell id="203">
+                            <data id="231">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">agg_cash_in_count</property>
+                            </data>
+                        </cell>
+                        <cell id="204">
+                            <data id="232">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">agg_cash_out_count</property>
+                            </data>
+                        </cell>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="36">
+                    <property name="fontFamily">"Calibri"</property>
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="37">
+                        <data id="206">
+                            <property name="resultSetColumn">period_analysis_month</property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">carddetail_specific_month_rpt.rptdesign</property>
+                                    <property name="targetWindow">_blank</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">CardCan</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">row["cardcan"]</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">Month</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">row["period_analysis_month"]</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </data>
+                    </cell>
+                    <cell id="39">
+                        <data id="44">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">min_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="41">
+                        <data id="40">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">max_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="43">
+                        <data id="42">
+                            <property name="backgroundColor">#F0F0F0</property>
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">total_counter</property>
+                        </data>
+                    </cell>
+                    <cell id="45">
+                        <data id="46">
+                            <property name="backgroundColor">#F0F0F0</property>
+                            <property name="fontSize">7pt</property>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">counter</property>
+                        </data>
+                    </cell>
+                    <cell id="47">
+                        <data id="48">
+                            <property name="backgroundColor">#F0F0F0</property>
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">cash_transaction_count</property>
+                        </data>
+                    </cell>
+                    <cell id="49">
+                        <data id="52">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">topuponly_count</property>
+                        </data>
+                    </cell>
+                    <cell id="51">
+                        <data id="50">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">cash_transaction_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="53">
+                        <data id="58">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">CASH_IN</property>
+                        </data>
+                    </cell>
+                    <cell id="55">
+                        <data id="62">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">CASH_OUT</property>
+                        </data>
+                    </cell>
+                    <cell id="57">
+                        <data id="54">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">topuponly_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="59">
+                        <data id="56">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">topuponly193_count</property>
+                        </data>
+                    </cell>
+                    <cell id="61">
+                        <data id="60">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">CASH_IN_COUNT</property>
+                        </data>
+                    </cell>
+                    <cell id="63">
+                        <data id="64">
+                            <property name="fontSize">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">CASH_OUT_COUNT</property>
+                        </data>
+                    </cell>
+                </row>
+                <row id="96">
+                    <property name="fontFamily">"Calibri"</property>
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="97"/>
+                    <cell id="98"/>
+                    <cell id="99"/>
+                    <cell id="100"/>
+                    <cell id="101"/>
+                    <cell id="102"/>
+                    <cell id="103"/>
+                    <cell id="104"/>
+                    <cell id="105"/>
+                    <cell id="106"/>
+                    <cell id="107"/>
+                    <cell id="108"/>
+                    <cell id="109"/>
+                    <cell id="110"/>
+                </row>
+            </detail>
+            <footer>
+                <row id="65">
+                    <cell id="66"/>
+                    <cell id="67"/>
+                    <cell id="68"/>
+                    <cell id="69"/>
+                    <cell id="70"/>
+                    <cell id="71"/>
+                    <cell id="72"/>
+                    <cell id="73"/>
+                    <cell id="74"/>
+                    <cell id="75"/>
+                    <cell id="76"/>
+                    <cell id="77"/>
+                    <cell id="78"/>
+                    <cell id="79"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="Report Name">
+            <expression name="value" type="javascript">if (params["cardnumber"].value == "%"){&#13;
+    "All Cards up-to-date statistic"&#13;
+} else {&#13;
+    "Up-To-Date Transaction of (" + params["cardnumber"].value + ")"&#13;
+    }</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

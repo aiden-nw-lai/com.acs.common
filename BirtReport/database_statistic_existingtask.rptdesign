@@ -1,0 +1,2414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">309</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">309</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">309</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="246">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Existing Task" id="308">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">spid</property>
+                    <text-property name="displayName">spid</text-property>
+                    <text-property name="heading">spid</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">kpid</property>
+                    <text-property name="displayName">kpid</text-property>
+                    <text-property name="heading">kpid</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">blocked</property>
+                    <text-property name="displayName">blocked</text-property>
+                    <text-property name="heading">blocked</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">waittype</property>
+                    <text-property name="displayName">waittype</text-property>
+                    <text-property name="heading">waittype</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">waittime</property>
+                    <text-property name="displayName">waittime</text-property>
+                    <text-property name="heading">waittime</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">lastwaittype</property>
+                    <text-property name="displayName">lastwaittype</text-property>
+                    <text-property name="heading">lastwaittype</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">waitresource</property>
+                    <text-property name="displayName">waitresource</text-property>
+                    <text-property name="heading">waitresource</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dbid</property>
+                    <text-property name="displayName">dbid</text-property>
+                    <text-property name="heading">dbid</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">uid</property>
+                    <text-property name="displayName">uid</text-property>
+                    <text-property name="heading">uid</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cpu</property>
+                    <text-property name="displayName">cpu</text-property>
+                    <text-property name="heading">cpu</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">physical_io</property>
+                    <text-property name="displayName">physical_io</text-property>
+                    <text-property name="heading">physical_io</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">memusage</property>
+                    <text-property name="displayName">memusage</text-property>
+                    <text-property name="heading">memusage</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">login_time</property>
+                    <text-property name="displayName">login_time</text-property>
+                    <text-property name="heading">login_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">last_batch</property>
+                    <text-property name="displayName">last_batch</text-property>
+                    <text-property name="heading">last_batch</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ecid</property>
+                    <text-property name="displayName">ecid</text-property>
+                    <text-property name="heading">ecid</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">open_tran</property>
+                    <text-property name="displayName">open_tran</text-property>
+                    <text-property name="heading">open_tran</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">status</property>
+                    <text-property name="displayName">status</text-property>
+                    <text-property name="heading">status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sid</property>
+                    <text-property name="displayName">sid</text-property>
+                    <text-property name="heading">sid</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">hostname</property>
+                    <text-property name="displayName">hostname</text-property>
+                    <text-property name="heading">hostname</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">program_name</property>
+                    <text-property name="displayName">program_name</text-property>
+                    <text-property name="heading">program_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">hostprocess</property>
+                    <text-property name="displayName">hostprocess</text-property>
+                    <text-property name="heading">hostprocess</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cmd</property>
+                    <text-property name="displayName">cmd</text-property>
+                    <text-property name="heading">cmd</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">nt_domain</property>
+                    <text-property name="displayName">nt_domain</text-property>
+                    <text-property name="heading">nt_domain</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">nt_username</property>
+                    <text-property name="displayName">nt_username</text-property>
+                    <text-property name="heading">nt_username</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">net_address</property>
+                    <text-property name="displayName">net_address</text-property>
+                    <text-property name="heading">net_address</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">net_library</property>
+                    <text-property name="displayName">net_library</text-property>
+                    <text-property name="heading">net_library</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">loginame</property>
+                    <text-property name="displayName">loginame</text-property>
+                    <text-property name="heading">loginame</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">context_info</property>
+                    <text-property name="displayName">context_info</text-property>
+                    <text-property name="heading">context_info</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sql_handle</property>
+                    <text-property name="displayName">sql_handle</text-property>
+                    <text-property name="heading">sql_handle</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">stmt_start</property>
+                    <text-property name="displayName">stmt_start</text-property>
+                    <text-property name="heading">stmt_start</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">stmt_end</property>
+                    <text-property name="displayName">stmt_end</text-property>
+                    <text-property name="heading">stmt_end</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">request_id</property>
+                    <text-property name="displayName">request_id</text-property>
+                    <text-property name="heading">request_id</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">spid</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">kpid</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">blocked</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">waittype</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">waittime</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">lastwaittype</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">waitresource</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">dbid</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">uid</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">cpu</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">physical_io</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">memusage</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">login_time</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">last_batch</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">ecid</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">open_tran</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">sid</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">hostname</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">program_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">hostprocess</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">cmd</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">nt_domain</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">nt_username</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">net_address</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">net_library</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">loginame</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">context_info</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">sql_handle</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">stmt_start</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">stmt_end</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">request_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">spid</property>
+                    <property name="nativeName">spid</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">kpid</property>
+                    <property name="nativeName">kpid</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">blocked</property>
+                    <property name="nativeName">blocked</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">waittype</property>
+                    <property name="nativeName">waittype</property>
+                    <property name="dataType">blob</property>
+                    <property name="nativeDataType">-2</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">waittime</property>
+                    <property name="nativeName">waittime</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">lastwaittype</property>
+                    <property name="nativeName">lastwaittype</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">waitresource</property>
+                    <property name="nativeName">waitresource</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">dbid</property>
+                    <property name="nativeName">dbid</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">uid</property>
+                    <property name="nativeName">uid</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">cpu</property>
+                    <property name="nativeName">cpu</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">physical_io</property>
+                    <property name="nativeName">physical_io</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">memusage</property>
+                    <property name="nativeName">memusage</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">login_time</property>
+                    <property name="nativeName">login_time</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">last_batch</property>
+                    <property name="nativeName">last_batch</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">ecid</property>
+                    <property name="nativeName">ecid</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">open_tran</property>
+                    <property name="nativeName">open_tran</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">status</property>
+                    <property name="nativeName">status</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">sid</property>
+                    <property name="nativeName">sid</property>
+                    <property name="dataType">blob</property>
+                    <property name="nativeDataType">-2</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">hostname</property>
+                    <property name="nativeName">hostname</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">program_name</property>
+                    <property name="nativeName">program_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">hostprocess</property>
+                    <property name="nativeName">hostprocess</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">cmd</property>
+                    <property name="nativeName">cmd</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">nt_domain</property>
+                    <property name="nativeName">nt_domain</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">nt_username</property>
+                    <property name="nativeName">nt_username</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">net_address</property>
+                    <property name="nativeName">net_address</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">net_library</property>
+                    <property name="nativeName">net_library</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">loginame</property>
+                    <property name="nativeName">loginame</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">context_info</property>
+                    <property name="nativeName">context_info</property>
+                    <property name="dataType">blob</property>
+                    <property name="nativeDataType">-2</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">sql_handle</property>
+                    <property name="nativeName">sql_handle</property>
+                    <property name="dataType">blob</property>
+                    <property name="nativeDataType">-2</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">stmt_start</property>
+                    <property name="nativeName">stmt_start</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">stmt_end</property>
+                    <property name="nativeName">stmt_end</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">request_id</property>
+                    <property name="nativeName">request_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select * from master..sysprocesses
+where status = 'runnable' --comment this out
+order by CPU
+desc]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>spid</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>spid</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>spid</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>kpid</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>kpid</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>kpid</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>blocked</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>blocked</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>blocked</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>waittype</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-2</design:nativeDataTypeCode>
+            <design:precision>2</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>waittype</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>waittype</design:label>
+            <design:formattingHints>
+              <design:displaySize>4</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>waittime</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>waittime</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>waittime</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>lastwaittype</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>32</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>lastwaittype</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>lastwaittype</design:label>
+            <design:formattingHints>
+              <design:displaySize>32</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>waitresource</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>256</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>waitresource</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>waitresource</design:label>
+            <design:formattingHints>
+              <design:displaySize>256</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>dbid</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>dbid</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>dbid</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>uid</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>uid</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>uid</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cpu</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cpu</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cpu</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>physical_io</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>physical_io</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>physical_io</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>memusage</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>memusage</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>memusage</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>login_time</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>23</design:precision>
+            <design:scale>3</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>login_time</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>login_time</design:label>
+            <design:formattingHints>
+              <design:displaySize>23</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>last_batch</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>23</design:precision>
+            <design:scale>3</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>last_batch</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>last_batch</design:label>
+            <design:formattingHints>
+              <design:displaySize>23</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ecid</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ecid</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ecid</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>open_tran</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>open_tran</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>open_tran</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>status</design:name>
+              <design:position>17</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>status</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>status</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>sid</design:name>
+              <design:position>18</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-2</design:nativeDataTypeCode>
+            <design:precision>86</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>sid</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>sid</design:label>
+            <design:formattingHints>
+              <design:displaySize>172</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>hostname</design:name>
+              <design:position>19</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>128</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>hostname</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>hostname</design:label>
+            <design:formattingHints>
+              <design:displaySize>128</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>program_name</design:name>
+              <design:position>20</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>128</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>program_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>program_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>128</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>hostprocess</design:name>
+              <design:position>21</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>hostprocess</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>hostprocess</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cmd</design:name>
+              <design:position>22</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>16</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cmd</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cmd</design:label>
+            <design:formattingHints>
+              <design:displaySize>16</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>nt_domain</design:name>
+              <design:position>23</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>128</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>nt_domain</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>nt_domain</design:label>
+            <design:formattingHints>
+              <design:displaySize>128</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>nt_username</design:name>
+              <design:position>24</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>128</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>nt_username</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>nt_username</design:label>
+            <design:formattingHints>
+              <design:displaySize>128</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>net_address</design:name>
+              <design:position>25</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>12</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>net_address</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>net_address</design:label>
+            <design:formattingHints>
+              <design:displaySize>12</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>net_library</design:name>
+              <design:position>26</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>12</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>net_library</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>net_library</design:label>
+            <design:formattingHints>
+              <design:displaySize>12</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>loginame</design:name>
+              <design:position>27</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>128</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>loginame</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>loginame</design:label>
+            <design:formattingHints>
+              <design:displaySize>128</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>context_info</design:name>
+              <design:position>28</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-2</design:nativeDataTypeCode>
+            <design:precision>128</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>context_info</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>context_info</design:label>
+            <design:formattingHints>
+              <design:displaySize>256</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>sql_handle</design:name>
+              <design:position>29</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-2</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>sql_handle</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>sql_handle</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>stmt_start</design:name>
+              <design:position>30</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>stmt_start</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>stmt_start</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>stmt_end</design:name>
+              <design:position>31</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>stmt_end</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>stmt_end</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>request_id</design:name>
+              <design:position>32</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>request_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>request_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Top Task" id="309">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">display_text</property>
+                    <expression name="expression">BirtStr.left(row["text"], 100)</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">execution_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">execution_count</text-property>
+                    <text-property name="heading">execution_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total_CPU</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Total_CPU</text-property>
+                    <text-property name="heading">Total_CPU</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_CPU_inSeconds</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_CPU_inSeconds</text-property>
+                    <text-property name="heading">total_CPU_inSeconds</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">average_CPU_inSeconds</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">average_CPU_inSeconds</text-property>
+                    <text-property name="heading">average_CPU_inSeconds</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_elapsed_time</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_elapsed_time</text-property>
+                    <text-property name="heading">total_elapsed_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_elapsed_time_inSeconds</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_elapsed_time_inSeconds</text-property>
+                    <text-property name="heading">total_elapsed_time_inSeconds</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">text</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">text</text-property>
+                    <text-property name="heading">text</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">execution_count</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Total_CPU</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">total_CPU_inSeconds</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">average_CPU_inSeconds</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">total_elapsed_time</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">total_elapsed_time_inSeconds</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">text</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">display_text</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">execution_count</property>
+                    <property name="nativeName">execution_count</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Total_CPU</property>
+                    <property name="nativeName">Total_CPU</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">total_CPU_inSeconds</property>
+                    <property name="nativeName">total_CPU_inSeconds</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">average_CPU_inSeconds</property>
+                    <property name="nativeName">average_CPU_inSeconds</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">total_elapsed_time</property>
+                    <property name="nativeName">total_elapsed_time</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">total_elapsed_time_inSeconds</property>
+                    <property name="nativeName">total_elapsed_time_inSeconds</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">text</property>
+                    <property name="nativeName">text</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT TOP 20
+  --  qs.sql_handle,
+    qs.execution_count,
+    qs.total_worker_time AS Total_CPU,
+    total_CPU_inSeconds = --Converted from microseconds
+        qs.total_worker_time/1000000,
+    average_CPU_inSeconds = --Converted from microseconds
+        (qs.total_worker_time/1000000) / qs.execution_count,
+    qs.total_elapsed_time,
+    total_elapsed_time_inSeconds = --Converted from microseconds
+        qs.total_elapsed_time/1000000,
+   st.text
+  -- qp.query_plan
+from
+    sys.dm_exec_query_stats as qs
+    CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) as st
+    cross apply sys.dm_exec_query_plan (qs.plan_handle) as qp
+ORDER BY qs.total_worker_time desc
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>sql_handle</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-3</design:nativeDataTypeCode>
+            <design:precision>64</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>sql_handle</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>sql_handle</design:label>
+            <design:formattingHints>
+              <design:displaySize>128</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>execution_count</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>execution_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>execution_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Total_CPU</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Total_CPU</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Total_CPU</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>total_CPU_inSeconds</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>total_CPU_inSeconds</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>total_CPU_inSeconds</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>average_CPU_inSeconds</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>average_CPU_inSeconds</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>average_CPU_inSeconds</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>total_elapsed_time</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>total_elapsed_time</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>total_elapsed_time</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>total_elapsed_time_inSeconds</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>total_elapsed_time_inSeconds</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>total_elapsed_time_inSeconds</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>text</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>1073741823</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>text</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>text</design:label>
+            <design:formattingHints>
+              <design:displaySize>1073741823</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>query_plan</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>1073741823</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>query_plan</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>query_plan</design:label>
+            <design:formattingHints>
+              <design:displaySize>1073741823</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="310">
+            <property name="dataSet">Existing Task</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">spid</property>
+                    <text-property name="displayName">spid</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["spid"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">kpid</property>
+                    <text-property name="displayName">kpid</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["kpid"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">blocked</property>
+                    <text-property name="displayName">blocked</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["blocked"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">waittype</property>
+                    <text-property name="displayName">waittype</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["waittype"]</expression>
+                    <property name="dataType">blob</property>
+                </structure>
+                <structure>
+                    <property name="name">waittime</property>
+                    <text-property name="displayName">waittime</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["waittime"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">lastwaittype</property>
+                    <text-property name="displayName">lastwaittype</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["lastwaittype"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">waitresource</property>
+                    <text-property name="displayName">waitresource</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["waitresource"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">dbid</property>
+                    <text-property name="displayName">dbid</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["dbid"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">uid</property>
+                    <text-property name="displayName">uid</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["uid"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">cpu</property>
+                    <text-property name="displayName">cpu</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cpu"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">physical_io</property>
+                    <text-property name="displayName">physical_io</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["physical_io"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">memusage</property>
+                    <text-property name="displayName">memusage</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["memusage"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">login_time</property>
+                    <text-property name="displayName">login_time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["login_time"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">last_batch</property>
+                    <text-property name="displayName">last_batch</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["last_batch"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">ecid</property>
+                    <text-property name="displayName">ecid</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ecid"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">open_tran</property>
+                    <text-property name="displayName">open_tran</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["open_tran"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">status</property>
+                    <text-property name="displayName">status</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["status"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sid</property>
+                    <text-property name="displayName">sid</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sid"]</expression>
+                    <property name="dataType">blob</property>
+                </structure>
+                <structure>
+                    <property name="name">hostname</property>
+                    <text-property name="displayName">hostname</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["hostname"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">program_name</property>
+                    <text-property name="displayName">program_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["program_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">hostprocess</property>
+                    <text-property name="displayName">hostprocess</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["hostprocess"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">cmd</property>
+                    <text-property name="displayName">cmd</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cmd"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">nt_domain</property>
+                    <text-property name="displayName">nt_domain</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["nt_domain"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">nt_username</property>
+                    <text-property name="displayName">nt_username</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["nt_username"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">net_address</property>
+                    <text-property name="displayName">net_address</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["net_address"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">net_library</property>
+                    <text-property name="displayName">net_library</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["net_library"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">loginame</property>
+                    <text-property name="displayName">loginame</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["loginame"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">context_info</property>
+                    <text-property name="displayName">context_info</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["context_info"]</expression>
+                    <property name="dataType">blob</property>
+                </structure>
+                <structure>
+                    <property name="name">sql_handle</property>
+                    <text-property name="displayName">sql_handle</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sql_handle"]</expression>
+                    <property name="dataType">blob</property>
+                </structure>
+                <structure>
+                    <property name="name">stmt_start</property>
+                    <text-property name="displayName">stmt_start</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stmt_start"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">stmt_end</property>
+                    <text-property name="displayName">stmt_end</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stmt_end"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">request_id</property>
+                    <text-property name="displayName">request_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["request_id"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <column id="474"/>
+            <column id="476"/>
+            <column id="477"/>
+            <column id="478"/>
+            <column id="479"/>
+            <column id="480"/>
+            <column id="483"/>
+            <column id="484"/>
+            <column id="485"/>
+            <column id="486"/>
+            <column id="488"/>
+            <column id="489"/>
+            <column id="490"/>
+            <column id="492"/>
+            <column id="496"/>
+            <column id="498"/>
+            <column id="500"/>
+            <column id="502"/>
+            <column id="504"/>
+            <header>
+                <row id="311">
+                    <cell id="312">
+                        <label id="313">
+                            <text-property name="text">spid&#13;
+kpidd&#13;
+dbid&#13;
+uid</text-property>
+                        </label>
+                        <label id="347">
+                            <text-property name="text">sid</text-property>
+                        </label>
+                    </cell>
+                    <cell id="316">
+                        <label id="317">
+                            <text-property name="text">blocked</text-property>
+                        </label>
+                    </cell>
+                    <cell id="318">
+                        <label id="319">
+                            <text-property name="text">waittype</text-property>
+                        </label>
+                    </cell>
+                    <cell id="320">
+                        <label id="321">
+                            <text-property name="text">waittime</text-property>
+                        </label>
+                    </cell>
+                    <cell id="322">
+                        <label id="323">
+                            <text-property name="text">lastwaittype</text-property>
+                        </label>
+                    </cell>
+                    <cell id="324">
+                        <label id="325">
+                            <text-property name="text">waitresource</text-property>
+                        </label>
+                    </cell>
+                    <cell id="330">
+                        <label id="331">
+                            <text-property name="text">cpu</text-property>
+                        </label>
+                    </cell>
+                    <cell id="332">
+                        <label id="333">
+                            <text-property name="text">physical_io</text-property>
+                        </label>
+                    </cell>
+                    <cell id="334">
+                        <label id="335">
+                            <text-property name="text">memusage</text-property>
+                        </label>
+                    </cell>
+                    <cell id="336">
+                        <label id="337">
+                            <text-property name="text">login_time</text-property>
+                        </label>
+                        <label id="339">
+                            <text-property name="text">last_batch</text-property>
+                        </label>
+                    </cell>
+                    <cell id="340">
+                        <label id="341">
+                            <text-property name="text">ecid</text-property>
+                        </label>
+                    </cell>
+                    <cell id="342">
+                        <label id="343">
+                            <text-property name="text">open_tran</text-property>
+                        </label>
+                    </cell>
+                    <cell id="344">
+                        <label id="345">
+                            <text-property name="text">status</text-property>
+                        </label>
+                    </cell>
+                    <cell id="348">
+                        <label id="349">
+                            <text-property name="text">hostname</text-property>
+                        </label>
+                        <label id="351">
+                            <text-property name="text">program_name</text-property>
+                        </label>
+                        <label id="353">
+                            <text-property name="text">hostprocess</text-property>
+                        </label>
+                    </cell>
+                    <cell id="356">
+                        <label id="357">
+                            <text-property name="text">nt_domain</text-property>
+                        </label>
+                        <label id="359">
+                            <text-property name="text">nt_username</text-property>
+                        </label>
+                    </cell>
+                    <cell id="360">
+                        <label id="361">
+                            <text-property name="text">net_address</text-property>
+                        </label>
+                        <label id="363">
+                            <text-property name="text">net_library</text-property>
+                        </label>
+                    </cell>
+                    <cell id="364">
+                        <label id="365">
+                            <text-property name="text">loginame</text-property>
+                        </label>
+                        <label id="367">
+                            <text-property name="text">context_info</text-property>
+                        </label>
+                    </cell>
+                    <cell id="368">
+                        <label id="369">
+                            <text-property name="text">sql_handle</text-property>
+                        </label>
+                        <label id="371">
+                            <text-property name="text">stmt_start</text-property>
+                        </label>
+                    </cell>
+                    <cell id="372">
+                        <label id="373">
+                            <text-property name="text">stmt_end</text-property>
+                        </label>
+                        <label id="375">
+                            <text-property name="text">request_id</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="376">
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="377">
+                        <data id="380">
+                            <property name="resultSetColumn">kpid</property>
+                        </data>
+                        <data id="378">
+                            <property name="resultSetColumn">spid</property>
+                        </data>
+                        <data id="392">
+                            <property name="resultSetColumn">dbid</property>
+                        </data>
+                        <data id="394">
+                            <property name="resultSetColumn">uid</property>
+                        </data>
+                        <data id="420">
+                            <property name="resultSetColumn">cmd</property>
+                        </data>
+                        <data id="412">
+                            <property name="resultSetColumn">sid</property>
+                        </data>
+                    </cell>
+                    <cell id="381">
+                        <data id="382">
+                            <property name="resultSetColumn">blocked</property>
+                        </data>
+                    </cell>
+                    <cell id="383">
+                        <data id="384">
+                            <property name="resultSetColumn">waittype</property>
+                        </data>
+                    </cell>
+                    <cell id="385">
+                        <data id="386">
+                            <property name="resultSetColumn">waittime</property>
+                        </data>
+                    </cell>
+                    <cell id="387">
+                        <data id="388">
+                            <property name="resultSetColumn">lastwaittype</property>
+                        </data>
+                    </cell>
+                    <cell id="389">
+                        <data id="390">
+                            <property name="resultSetColumn">waitresource</property>
+                        </data>
+                    </cell>
+                    <cell id="395">
+                        <property name="backgroundColor">#FFFF80</property>
+                        <data id="396">
+                            <property name="resultSetColumn">cpu</property>
+                        </data>
+                    </cell>
+                    <cell id="397">
+                        <property name="backgroundColor">#FFFF80</property>
+                        <data id="398">
+                            <property name="resultSetColumn">physical_io</property>
+                        </data>
+                    </cell>
+                    <cell id="399">
+                        <property name="backgroundColor">#FFFF80</property>
+                        <data id="400">
+                            <property name="resultSetColumn">memusage</property>
+                        </data>
+                    </cell>
+                    <cell id="401">
+                        <property name="backgroundColor">#FFFF80</property>
+                        <data id="402">
+                            <property name="resultSetColumn">login_time</property>
+                        </data>
+                        <data id="404">
+                            <property name="resultSetColumn">last_batch</property>
+                        </data>
+                    </cell>
+                    <cell id="405">
+                        <data id="406">
+                            <property name="resultSetColumn">ecid</property>
+                        </data>
+                    </cell>
+                    <cell id="407">
+                        <data id="408">
+                            <property name="resultSetColumn">open_tran</property>
+                        </data>
+                    </cell>
+                    <cell id="409">
+                        <data id="410">
+                            <property name="resultSetColumn">status</property>
+                        </data>
+                    </cell>
+                    <cell id="413">
+                        <data id="414">
+                            <property name="resultSetColumn">hostname</property>
+                        </data>
+                        <data id="416">
+                            <property name="resultSetColumn">program_name</property>
+                        </data>
+                        <data id="418">
+                            <property name="resultSetColumn">hostprocess</property>
+                        </data>
+                    </cell>
+                    <cell id="421">
+                        <data id="422">
+                            <property name="resultSetColumn">nt_domain</property>
+                        </data>
+                        <data id="424">
+                            <property name="resultSetColumn">nt_username</property>
+                        </data>
+                    </cell>
+                    <cell id="425">
+                        <data id="426">
+                            <property name="resultSetColumn">net_address</property>
+                        </data>
+                        <data id="428">
+                            <property name="resultSetColumn">net_library</property>
+                        </data>
+                    </cell>
+                    <cell id="429">
+                        <data id="430">
+                            <property name="resultSetColumn">loginame</property>
+                        </data>
+                        <data id="432">
+                            <property name="resultSetColumn">context_info</property>
+                        </data>
+                    </cell>
+                    <cell id="433">
+                        <data id="434">
+                            <property name="resultSetColumn">sql_handle</property>
+                        </data>
+                        <data id="436">
+                            <property name="resultSetColumn">stmt_start</property>
+                        </data>
+                    </cell>
+                    <cell id="437">
+                        <data id="438">
+                            <property name="resultSetColumn">stmt_end</property>
+                        </data>
+                        <data id="440">
+                            <property name="resultSetColumn">request_id</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="441">
+                    <cell id="442"/>
+                    <cell id="444"/>
+                    <cell id="445"/>
+                    <cell id="446"/>
+                    <cell id="447"/>
+                    <cell id="448"/>
+                    <cell id="451"/>
+                    <cell id="452"/>
+                    <cell id="453"/>
+                    <cell id="454"/>
+                    <cell id="456"/>
+                    <cell id="457"/>
+                    <cell id="458"/>
+                    <cell id="460"/>
+                    <cell id="464"/>
+                    <cell id="466"/>
+                    <cell id="468"/>
+                    <cell id="470"/>
+                    <cell id="472"/>
+                </row>
+            </footer>
+        </table>
+        <label id="506">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">left</property>
+            <text-property name="text">Top 20</text-property>
+        </label>
+        <table id="675">
+            <property name="width">7.989583333333333in</property>
+            <property name="dataSet">Top Task</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">execution_count</property>
+                    <text-property name="displayName">execution_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["execution_count"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Total_CPU</property>
+                    <text-property name="displayName">Total_CPU</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Total_CPU"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">total_CPU_inSeconds</property>
+                    <text-property name="displayName">total_CPU_inSeconds</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_CPU_inSeconds"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">average_CPU_inSeconds</property>
+                    <text-property name="displayName">average_CPU_inSeconds</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["average_CPU_inSeconds"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">total_elapsed_time</property>
+                    <text-property name="displayName">total_elapsed_time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_elapsed_time"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">total_elapsed_time_inSeconds</property>
+                    <text-property name="displayName">total_elapsed_time_inSeconds</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_elapsed_time_inSeconds"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">text</property>
+                    <text-property name="displayName">text</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["text"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">display_text</property>
+                    <text-property name="displayName">display_text</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["display_text"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="714">
+                <property name="width">0.7604166666666666in</property>
+            </column>
+            <column id="715">
+                <property name="textAlign">right</property>
+                <property name="width">1.0833333333333333in</property>
+            </column>
+            <column id="716">
+                <property name="width">1in</property>
+            </column>
+            <column id="717">
+                <property name="textAlign">right</property>
+                <property name="width">1.0625in</property>
+            </column>
+            <column id="718">
+                <property name="width">1.0625in</property>
+            </column>
+            <column id="719">
+                <property name="textAlign">right</property>
+                <property name="width">0.9895833333333334in</property>
+            </column>
+            <column id="725">
+                <property name="width">0.14583333333333334in</property>
+            </column>
+            <column id="720">
+                <property name="width">1.8854166666666667in</property>
+            </column>
+            <header>
+                <row id="676">
+                    <property name="verticalAlign">bottom</property>
+                    <property name="height">0.75in</property>
+                    <cell id="677">
+                        <label id="678">
+                            <text-property name="text">Execution&#13;
+Count</text-property>
+                        </label>
+                    </cell>
+                    <cell id="679">
+                        <label id="680">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">CPU &#13;
+Usage</text-property>
+                        </label>
+                    </cell>
+                    <cell id="681">
+                        <label id="682">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">CPU&#13;
+in Sec</text-property>
+                        </label>
+                    </cell>
+                    <cell id="683">
+                        <label id="684">
+                            <text-property name="text">Average CPU&#13;
+in Sec</text-property>
+                        </label>
+                    </cell>
+                    <cell id="685">
+                        <label id="686">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Total&#13;
+Elapsed&#13;
+time</text-property>
+                        </label>
+                    </cell>
+                    <cell id="687">
+                        <label id="688">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Total&#13;
+Elapsed&#13;
+time in Sec</text-property>
+                        </label>
+                    </cell>
+                    <cell id="722"/>
+                    <cell id="689">
+                        <label id="690">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">text</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="691">
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="692">
+                        <data id="693">
+                            <property name="resultSetColumn">execution_count</property>
+                        </data>
+                    </cell>
+                    <cell id="694">
+                        <data id="695">
+                            <property name="resultSetColumn">Total_CPU</property>
+                        </data>
+                    </cell>
+                    <cell id="696">
+                        <data id="697">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">total_CPU_inSeconds</property>
+                        </data>
+                    </cell>
+                    <cell id="698">
+                        <data id="699">
+                            <property name="resultSetColumn">average_CPU_inSeconds</property>
+                        </data>
+                    </cell>
+                    <cell id="700">
+                        <data id="701">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">total_elapsed_time</property>
+                        </data>
+                    </cell>
+                    <cell id="702">
+                        <data id="703">
+                            <property name="resultSetColumn">total_elapsed_time_inSeconds</property>
+                        </data>
+                    </cell>
+                    <cell id="723"/>
+                    <cell id="704">
+                        <data id="721">
+                            <property name="resultSetColumn">display_text</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="706">
+                    <cell id="707"/>
+                    <cell id="708"/>
+                    <cell id="709"/>
+                    <cell id="710"/>
+                    <cell id="711"/>
+                    <cell id="712"/>
+                    <cell id="724"/>
+                    <cell id="713"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

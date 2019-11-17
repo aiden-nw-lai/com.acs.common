@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">5</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.41:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">TerminalCode</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TerminalCode</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TerminalCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TerminalName</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TerminalName</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TerminalName</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Description</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Description</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TerminalCategoryCode</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TerminalCategoryCode</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TerminalCategoryCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MerchantCode</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">MerchantCode</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">MerchantCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TradeCode</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TradeCode</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TradeCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">IP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">IP</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">IP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">PositionCode</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">PositionCode</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">PositionCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Direction</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Direction</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Direction</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CFCode</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CFCode</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CFCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Stat</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Stat</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">Stat</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">UpdatedBy</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">UpdatedBy</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">UpdatedBy</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">UpdatedOn</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">UpdatedOn</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">UpdatedOn</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">TerminalCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TerminalName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">TerminalCategoryCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">MerchantCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">TradeCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">IP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">PositionCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Direction</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">CFCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Stat</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">UpdatedBy</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">UpdatedOn</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">TerminalCode</property>
+                    <property name="nativeName">TerminalCode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TerminalName</property>
+                    <property name="nativeName">TerminalName</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Description</property>
+                    <property name="nativeName">Description</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">TerminalCategoryCode</property>
+                    <property name="nativeName">TerminalCategoryCode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">MerchantCode</property>
+                    <property name="nativeName">MerchantCode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">TradeCode</property>
+                    <property name="nativeName">TradeCode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">IP</property>
+                    <property name="nativeName">IP</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">PositionCode</property>
+                    <property name="nativeName">PositionCode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">Direction</property>
+                    <property name="nativeName">Direction</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">CFCode</property>
+                    <property name="nativeName">CFCode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">Stat</property>
+                    <property name="nativeName">Stat</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-6</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">UpdatedBy</property>
+                    <property name="nativeName">UpdatedBy</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">UpdatedOn</property>
+                    <property name="nativeName">UpdatedOn</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select Period_analysis, txnnature, txntypecode, tickettypecode, busNo, sum(TxnAmount), TerminalCode  from txnJournal
+where Period_Analysis >=  convert(varchar(8), getdate() - 307, 112) and Period_Analysis <= convert(varchar(8), getdate() - 300, 112)
+group by period_analysis, txnnature, txntypecode,]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUPLICATION COUNT</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUPLICATION COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUPLICATION COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCAN</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCAN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCAN</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCTC</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="475">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CFCode</property>
+                    <text-property name="displayName">CFCode</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CFCode"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Description</property>
+                    <text-property name="displayName">Description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Direction</property>
+                    <text-property name="displayName">Direction</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Direction"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="488">
+                <property name="textAlign">left</property>
+            </column>
+            <column id="489"/>
+            <column id="490"/>
+            <header>
+                <row id="476">
+                    <cell id="477">
+                        <label id="491">
+                            <text-property name="text">CFCode</text-property>
+                        </label>
+                    </cell>
+                    <cell id="478">
+                        <label id="493">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Description</text-property>
+                        </label>
+                    </cell>
+                    <cell id="479">
+                        <label id="495">
+                            <text-property name="text">Direction</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="497">
+                <property name="groupName">NewTableGroup1</property>
+                <expression name="keyExpr" type="javascript">row["CFCode"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["CFCode"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <footer>
+                    <row id="502">
+                        <cell id="503"/>
+                        <cell id="504"/>
+                        <cell id="505"/>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="480">
+                    <property name="backgroundColor">#8000FF</property>
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2 </expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="481">
+                        <text-data id="507">
+                            <expression name="valueExpr">if (row["CFCode"]==NULL) {&#13;
+  "null";&#13;
+ } else {&#13;
+ row["CFCode"]&#13;
+ }</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                        <data id="492">
+                            <property name="resultSetColumn">CFCode</property>
+                        </data>
+                    </cell>
+                    <cell id="482">
+                        <data id="494">
+                            <property name="resultSetColumn">Description</property>
+                        </data>
+                    </cell>
+                    <cell id="483">
+                        <data id="496">
+                            <property name="resultSetColumn">Direction</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="484">
+                    <cell id="485"/>
+                    <cell id="486"/>
+                    <cell id="487"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="REPORTNAME">
+            <expression name="value" type="javascript">"CTC Duplication SUMMARY "</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="RECORD_COUNT">
+            <expression name="value" type="javascript">0</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

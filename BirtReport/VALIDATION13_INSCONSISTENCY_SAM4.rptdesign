@@ -1,0 +1,1460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">26</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">26</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">26</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/simple_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.simplelisting</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="ST_PD" id="321">
+            <text-property name="promptText">Start Period (YYYYMMDD)</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">20160101</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="ED_PD" id="322">
+            <text-property name="promptText">End Period(YYYYMMDD)</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">20160103</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="New BIRT JDBC Data Source" id="25">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="validation1" id="26">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">balance_varienance</property>
+                    <expression name="expression">row["CARRY_AMOUNT"]-row["CASH_OUT"]+row["CASH_IN"]-row["CLOSING_AMT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">SAMCAN</property>
+                    <property name="alias">SAMCAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SAMCAN</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">SAMCAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cardcan</property>
+                    <property name="alias">CARDCAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">cardcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">STARTCTC</property>
+                    <property name="alias">STARTCTC</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">STARTCTC</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">STARTCTC</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ENDCTC</property>
+                    <property name="alias">ENDCTC</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ENDCTC</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">ENDCTC</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TOTALCOUNT</property>
+                    <property name="alias">TOTALCOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TOTALCOUNT</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TOTALCOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TXDIFF</property>
+                    <property name="alias">TXDIFF</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TXDIFF</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TXDIFF</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CARRY_AMOUNT</property>
+                    <property name="alias">CARRY_AMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CARRY_AMOUNT</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CARRY_AMOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_IN</property>
+                    <property name="alias">CASH_IN</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_IN</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CASH_IN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_OUT</property>
+                    <property name="alias">CASH_OUT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_OUT</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CASH_OUT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CLOSING_AMT</property>
+                    <property name="alias">CLOSING_AMT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CLOSING_AMT</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CLOSING_AMT</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">ST_PD1</property>
+                    <property name="paramName">ST_PD</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="constant">20160101</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ED_PD1</property>
+                    <property name="paramName">ED_PD</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="constant">20160107</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ST_PD2</property>
+                    <property name="paramName">ST_PD</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">3</property>
+                    <expression name="defaultValue" type="constant">20160101</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ED_PD2</property>
+                    <property name="paramName">ED_PD</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">4</property>
+                    <expression name="defaultValue" type="constant">20160107</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ST_PD3</property>
+                    <property name="paramName">ST_PD</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">5</property>
+                    <expression name="defaultValue" type="constant">20160101</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ED_PD3</property>
+                    <property name="paramName">ED_PD</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">6</property>
+                    <expression name="defaultValue" type="constant">20160107</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">SAMCAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CARDCAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">STARTCTC</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ENDCTC</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">TOTALCOUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">TXDIFF</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">CARRY_AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">CASH_IN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">CASH_OUT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">CLOSING_AMT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">balance_varienance</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">New BIRT JDBC Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">SAMCAN</property>
+                    <property name="nativeName">SAMCAN</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">cardcan</property>
+                    <property name="nativeName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">STARTCTC</property>
+                    <property name="nativeName">STARTCTC</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ENDCTC</property>
+                    <property name="nativeName">ENDCTC</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">TOTALCOUNT</property>
+                    <property name="nativeName">TOTALCOUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">TXDIFF</property>
+                    <property name="nativeName">TXDIFF</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">CARRY_AMOUNT</property>
+                    <property name="nativeName">CARRY_AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">CASH_IN</property>
+                    <property name="nativeName">CASH_IN</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">CASH_OUT</property>
+                    <property name="nativeName">CASH_OUT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">CLOSING_AMT</property>
+                    <property name="nativeName">CLOSING_AMT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[		  select * from (
+SELECT ET3.SAMCAN, ET3.cardcan, ET3.STARTCTC, ET3.ENDCTC, ET3.TOTALCOUNT, ET3.TXDIFF, 
+ET3.CARRY_AMOUNT AS CARRY_AMOUNT, ET3.CASH_IN, ET3.CASH_OUT, ET4.BALANCEAFTER AS CLOSING_AMT 
+FROM TXNJOURNAL ET4 (readpast) 
+INNER JOIN 
+(
+	SELECT ET2.SAMCAN, ET1.cardcan, ET2.STARTCTC, ET2.ENDCTC, ET2.TOTALCOUNT, ET2.TXDIFF,
+		ET1.BALANCEBEFORE AS CARRY_AMOUNT, ET2.CASH_IN, ET2.CASH_OUT FROM 
+	TXNJOURNAL ET1 (readpast) 
+	INNER JOIN
+	(
+	select SAMCAN, --balancebefore, 
+				MIN(SAMCTC) as "StartCTC", MAX(SAMCTC) as "EndCTC", count(*) as "TotalCount",  MAX(SAMCTC) - MIN(SAMCTC) + 1 - count(*) as "TXDiff",
+								 SUM(
+				 CASE WHEN TXNTYPECODE = '210' OR TXNTYPECODE = '209' or TXNTYPECODE = '193' OR TXNTYPECODE = '198' OR TXNTYPECODE = '196' THEN txnamount ELSE 0 END
+				 	) 
+				  AS CASH_IN 
+				 , 
+				 SUM(
+				 CASE WHEN TXNTYPECODE = '177'  OR TXNTYPECODE = '211' or  TXNTYPECODE = '202'  or  TXNTYPECODE = '212' OR  TXNTYPECODE = '194' THEN txnamount ELSE 0 END
+				 )
+				  AS CASH_OUT
+				  
+				 --,balanceafter,
+				 --txntypecode  
+				 from txnJournal (readpast) 
+				 where	TXNNATURE <> 'TOPUP_OL'	 AND TXNTYPECODE <> '204' AND SAMCTC > 0 AND
+				 period_analysis BETWEEN ? AND ?
+	  GROUP BY SAMCAN
+	) ET2 ON ET1.SAMCAN = ET2.SAMCAN AND ET1.SAMCTC = ET2.STARTCTC  AND et1.SAMCTC > 0  
+			and ET1.period_analysis BETWEEN ? AND ?
+) ET3 ON ET3.SAMCAN = ET4.SAMCAN AND ET3.ENDCTC = ET4.SAMCTC  AND et4.SAMCTC > 0   AND
+				  ET4.period_analysis BETWEEN ? AND ?
+--and ET3.SAMCAN = '000411390F000018'
+) AS RESULTSET WHERE RESULTSET.TXDIFF !=0 
+ORDER BY RESULTSET.SAMCAN
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCAN</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCAN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCAN</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>STARTCTC</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>STARTCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>STARTCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ENDCTC</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ENDCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ENDCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TOTALCOUNT</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TOTALCOUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TOTALCOUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TXDIFF</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TXDIFF</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TXDIFF</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARRY_AMOUNT</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARRY_AMOUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARRY_AMOUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_IN</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_IN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_IN</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_OUT</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_OUT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_OUT</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CLOSING_AMT</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CLOSING_AMT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CLOSING_AMT</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="24">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="4">
+            <property name="width">10.458333333333334in</property>
+            <property name="pageBreakInterval">50</property>
+            <column id="20">
+                <property name="width">0.1875in</property>
+            </column>
+            <column id="21">
+                <property name="width">10.25in</property>
+            </column>
+            <header>
+                <row id="5">
+                    <cell id="6"/>
+                    <cell id="7">
+                        <property name="textAlign">left</property>
+                        <grid id="272">
+                            <column id="273">
+                                <property name="width">7.604166666666667in</property>
+                            </column>
+                            <column id="274">
+                                <property name="width">2.5833333333333335in</property>
+                            </column>
+                            <row id="275">
+                                <cell id="276">
+                                    <label id="245">
+                                        <property name="fontFamily">"Calibri"</property>
+                                        <property name="fontSize">13pt</property>
+                                        <text-property name="text">Inconsistency SAM CTC on Specific Date</text-property>
+                                    </label>
+                                    <data id="324">
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">DateRange</property>
+                                                <text-property name="displayName">DateRange</text-property>
+                                                <expression name="expression" type="javascript">vars["DateRange"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">DateRange</property>
+                                    </data>
+                                </cell>
+                                <cell id="277">
+                                    <label id="278">
+                                        <text-property name="text">All Card Summary</text-property>
+                                        <list-property name="action">
+                                            <structure>
+                                                <property name="linkType">drill-through</property>
+                                                <property name="reportName">VALIDATION1.rptdesign</property>
+                                                <property name="targetWindow">_blank</property>
+                                                <property name="targetFileType">report-design</property>
+                                            </structure>
+                                        </list-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="10">
+                    <cell id="11"/>
+                    <cell id="12">
+                        <table id="36">
+                            <property name="dataSet">validation1</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">CARDCAN</property>
+                                    <text-property name="displayName">CARDCAN</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["CARDCAN"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">CARRY_AMOUNT</property>
+                                    <text-property name="displayName">CARRY_AMOUNT</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["CARRY_AMOUNT"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">CASH_IN</property>
+                                    <text-property name="displayName">CASH_IN</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["CASH_IN"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">CASH_OUT</property>
+                                    <text-property name="displayName">CASH_OUT</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["CASH_OUT"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">CLOSING_AMT</property>
+                                    <text-property name="displayName">CLOSING_AMT</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["CLOSING_AMT"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">ENDCTC</property>
+                                    <text-property name="displayName">ENDCTC</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["ENDCTC"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">STARTCTC</property>
+                                    <text-property name="displayName">STARTCTC</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["STARTCTC"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">TOTALCOUNT</property>
+                                    <text-property name="displayName">TOTALCOUNT</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["TOTALCOUNT"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">TXDIFF</property>
+                                    <text-property name="displayName">TXDIFF</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["TXDIFF"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">balance_varienance</property>
+                                    <text-property name="displayName">balance_varienance</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["balance_varienance"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation</property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["CASH_IN"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_1</property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["CASH_OUT"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_2</property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["balance_varienance"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_3</property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["TXDIFF"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_4</property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["CARRY_AMOUNT"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_5</property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["CLOSING_AMT"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_6</property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["Aggregation"]+row["Aggregation1"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">SAMCAN</property>
+                                    <text-property name="displayName">SAMCAN</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["SAMCAN"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_7</property>
+                                    <text-property name="displayName">Aggregation_Cash_Out</text-property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">row["CASH_OUT"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Aggregation_Net</property>
+                                    <text-property name="displayName">Aggregation_Net</text-property>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">dataSetRow["CASH_IN"]+dataSetRow["CASH_OUT"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                            </list-property>
+                            <column id="70">
+                                <property name="width">70pt</property>
+                            </column>
+                            <column id="71">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">top</property>
+                                <property name="width">1.0520833333333333in</property>
+                            </column>
+                            <column id="72">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">top</property>
+                                <property name="width">60pt</property>
+                            </column>
+                            <column id="73">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">top</property>
+                                <property name="width">60pt</property>
+                            </column>
+                            <column id="74">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">top</property>
+                                <property name="width">0.8541666666666666in</property>
+                            </column>
+                            <column id="75">
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">center</property>
+                                <property name="width">20pt</property>
+                            </column>
+                            <column id="76">
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">center</property>
+                                <property name="width">20pt</property>
+                            </column>
+                            <column id="77">
+                                <property name="textAlign">center</property>
+                                <property name="width">20pt</property>
+                            </column>
+                            <column id="78">
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">top</property>
+                                <property name="width">0.9166666666666666in</property>
+                            </column>
+                            <column id="103">
+                                <property name="textAlign">right</property>
+                                <property name="width">1.1875in</property>
+                            </column>
+                            <column id="79">
+                                <property name="width">1.0729166666666667in</property>
+                            </column>
+                            <header>
+                                <row id="37">
+                                    <property name="backgroundColor">#0080FF</property>
+                                    <property name="fontFamily">"Arial"</property>
+                                    <property name="color">#FFFFFF</property>
+                                    <cell id="38">
+                                        <label id="80">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">SAMCAN</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="39">
+                                        <label id="81">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Opening Balance</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="40">
+                                        <label id="83">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Cash In</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="41">
+                                        <label id="85">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Cash Out</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="42">
+                                        <label id="87">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Amount Carry Forward</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="43">
+                                        <label id="89">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Start CTC</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="44">
+                                        <label id="91">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">End CTC</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="45">
+                                        <label id="93">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Total Tx</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="46">
+                                        <label id="95">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Tx Diff</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="100">
+                                        <label id="104">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <text-property name="text">Balance Varieance</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="47"/>
+                                </row>
+                            </header>
+                            <group id="294">
+                                <property name="groupName">SamGroup</property>
+                                <expression name="keyExpr" type="javascript">row["SAMCAN"]</expression>
+                                <expression name="bookmark" type="javascript">row["SAMCAN"]</expression>
+                                <structure name="toc">
+                                    <expression name="expressionValue" type="javascript">row["SAMCAN"]</expression>
+                                </structure>
+                                <property name="hideDetail">false</property>
+                                <header>
+                                    <row id="295">
+                                        <property name="backgroundColor">#000040</property>
+                                        <property name="color">#FFFFFF</property>
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">true</expression>
+                                            </structure>
+                                        </list-property>
+                                        <cell id="296">
+                                            <property name="colSpan">4</property>
+                                            <property name="rowSpan">1</property>
+                                            <data id="319">
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">true</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">SAMCAN</property>
+                                            </data>
+                                        </cell>
+                                        <cell id="300"/>
+                                        <cell id="301"/>
+                                        <cell id="302"/>
+                                        <cell id="303"/>
+                                        <cell id="304"/>
+                                        <cell id="305"/>
+                                        <cell id="306"/>
+                                    </row>
+                                </header>
+                                <footer>
+                                    <row id="307">
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">true</expression>
+                                            </structure>
+                                        </list-property>
+                                        <cell id="308"/>
+                                        <cell id="309"/>
+                                        <cell id="310"/>
+                                        <cell id="311"/>
+                                        <cell id="312"/>
+                                        <cell id="313"/>
+                                        <cell id="314"/>
+                                        <cell id="315"/>
+                                        <cell id="316"/>
+                                        <cell id="317"/>
+                                        <cell id="318"/>
+                                    </row>
+                                </footer>
+                            </group>
+                            <detail>
+                                <row id="48">
+                                    <property name="fontFamily">"Arial"</property>
+                                    <property name="fontSize">smaller</property>
+                                    <list-property name="highlightRules">
+                                        <structure>
+                                            <property name="operator">eq</property>
+                                            <property name="backgroundColor">#C4D8E3</property>
+                                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">0.0</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                    <cell id="49">
+                                        <data id="279">
+                                            <property name="backgroundAttachment">scroll</property>
+                                            <property name="backgroundPositionX">0%</property>
+                                            <property name="backgroundPositionY">0%</property>
+                                            <property name="backgroundRepeat">repeat</property>
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="fontVariant">normal</property>
+                                            <property name="color">black</property>
+                                            <property name="textLineThrough">none</property>
+                                            <property name="textOverline">none</property>
+                                            <property name="textUnderline">none</property>
+                                            <property name="borderBottomColor">black</property>
+                                            <property name="borderBottomStyle">none</property>
+                                            <property name="borderBottomWidth">medium</property>
+                                            <property name="borderLeftColor">black</property>
+                                            <property name="borderLeftStyle">none</property>
+                                            <property name="borderLeftWidth">medium</property>
+                                            <property name="borderRightColor">black</property>
+                                            <property name="borderRightStyle">none</property>
+                                            <property name="borderRightWidth">medium</property>
+                                            <property name="borderTopColor">black</property>
+                                            <property name="borderTopStyle">none</property>
+                                            <property name="borderTopWidth">medium</property>
+                                            <property name="marginTop">0pt</property>
+                                            <property name="marginLeft">0pt</property>
+                                            <property name="marginBottom">0pt</property>
+                                            <property name="marginRight">0pt</property>
+                                            <property name="paddingTop">1pt</property>
+                                            <property name="paddingLeft">1pt</property>
+                                            <property name="paddingBottom">1pt</property>
+                                            <property name="paddingRight">1pt</property>
+                                            <property name="textAlign">right</property>
+                                            <property name="letterSpacing">normal</property>
+                                            <property name="lineHeight">normal</property>
+                                            <property name="orphans">2</property>
+                                            <property name="textTransform">none</property>
+                                            <property name="whiteSpace">normal</property>
+                                            <property name="widows">2</property>
+                                            <property name="wordSpacing">normal</property>
+                                            <property name="display">block</property>
+                                            <property name="pageBreakAfter">auto</property>
+                                            <property name="pageBreakBefore">auto</property>
+                                            <property name="pageBreakInside">auto</property>
+                                            <property name="showIfBlank">false</property>
+                                            <property name="canShrink">false</property>
+                                            <property name="overflow">hidden</property>
+                                            <property name="resultSetColumn">SAMCAN</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="50">
+                                        <data id="82">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">CARRY_AMOUNT</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="51">
+                                        <data id="84">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">CASH_IN</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="52">
+                                        <data id="86">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">CASH_OUT</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="53">
+                                        <data id="88">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">CLOSING_AMT</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="54">
+                                        <data id="98">
+                                            <property name="backgroundColor">#6992DC</property>
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">STARTCTC</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="55">
+                                        <data id="99">
+                                            <property name="backgroundColor">#6992DC</property>
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">ENDCTC</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="56">
+                                        <data id="94">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">TOTALCOUNT</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="57">
+                                        <data id="96">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">###0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <list-property name="highlightRules">
+                                                <structure>
+                                                    <property name="operator">ne</property>
+                                                    <property name="color">#FF0000</property>
+                                                    <expression name="testExpr" type="javascript">row["TXDIFF"]</expression>
+                                                    <simple-property-list name="value1">
+                                                        <value type="javascript">0</value>
+                                                    </simple-property-list>
+                                                </structure>
+                                            </list-property>
+                                            <property name="resultSetColumn">TXDIFF</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="101">
+                                        <data id="246">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="resultSetColumn">balance_varienance</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="58"/>
+                                </row>
+                            </detail>
+                            <footer>
+                                <row id="59">
+                                    <property name="backgroundColor">#042233</property>
+                                    <list-property name="visibility">
+                                        <structure>
+                                            <property name="format">all</property>
+                                            <expression name="valueExpr" type="javascript">true</expression>
+                                        </structure>
+                                    </list-property>
+                                    <cell id="60">
+                                        <label id="247">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <list-property name="visibility">
+                                                <structure>
+                                                    <property name="format">all</property>
+                                                    <expression name="valueExpr" type="javascript">true</expression>
+                                                </structure>
+                                            </list-property>
+                                            <text-property name="text">Grand Total</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="61">
+                                        <data id="252">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="resultSetColumn">Aggregation_4</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="62">
+                                        <data id="248">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="resultSetColumn">Aggregation</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="63">
+                                        <data id="323">
+                                            <property name="backgroundAttachment">scroll</property>
+                                            <property name="backgroundPositionX">0%</property>
+                                            <property name="backgroundPositionY">0%</property>
+                                            <property name="backgroundRepeat">repeat</property>
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="fontVariant">normal</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <property name="textLineThrough">none</property>
+                                            <property name="textOverline">none</property>
+                                            <property name="textUnderline">none</property>
+                                            <property name="borderBottomColor">black</property>
+                                            <property name="borderBottomStyle">none</property>
+                                            <property name="borderBottomWidth">medium</property>
+                                            <property name="borderLeftColor">black</property>
+                                            <property name="borderLeftStyle">none</property>
+                                            <property name="borderLeftWidth">medium</property>
+                                            <property name="borderRightColor">black</property>
+                                            <property name="borderRightStyle">none</property>
+                                            <property name="borderRightWidth">medium</property>
+                                            <property name="borderTopColor">black</property>
+                                            <property name="borderTopStyle">none</property>
+                                            <property name="borderTopWidth">medium</property>
+                                            <property name="marginTop">0pt</property>
+                                            <property name="marginLeft">0pt</property>
+                                            <property name="marginBottom">0pt</property>
+                                            <property name="marginRight">0pt</property>
+                                            <property name="paddingTop">1pt</property>
+                                            <property name="paddingLeft">1pt</property>
+                                            <property name="paddingBottom">1pt</property>
+                                            <property name="paddingRight">1pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="letterSpacing">normal</property>
+                                            <property name="lineHeight">normal</property>
+                                            <property name="orphans">2</property>
+                                            <property name="textTransform">none</property>
+                                            <property name="whiteSpace">normal</property>
+                                            <property name="widows">2</property>
+                                            <property name="wordSpacing">normal</property>
+                                            <property name="display">block</property>
+                                            <property name="pageBreakAfter">auto</property>
+                                            <property name="pageBreakBefore">auto</property>
+                                            <property name="pageBreakInside">auto</property>
+                                            <property name="showIfBlank">false</property>
+                                            <property name="canShrink">false</property>
+                                            <property name="overflow">hidden</property>
+                                            <property name="resultSetColumn">Aggregation_7</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="64">
+                                        <data id="253">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="resultSetColumn">Aggregation_5</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="65"/>
+                                    <cell id="66"/>
+                                    <cell id="67"/>
+                                    <cell id="68">
+                                        <data id="251">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="resultSetColumn">Aggregation_3</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="102">
+                                        <data id="250">
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="resultSetColumn">Aggregation_2</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="69"/>
+                                </row>
+                                <row id="254">
+                                    <property name="backgroundColor">#042233</property>
+                                    <list-property name="visibility">
+                                        <structure>
+                                            <property name="format">all</property>
+                                            <expression name="valueExpr" type="javascript">true</expression>
+                                        </structure>
+                                    </list-property>
+                                    <cell id="255"/>
+                                    <cell id="256"/>
+                                    <cell id="257"/>
+                                    <cell id="258">
+                                        <data id="325">
+                                            <property name="backgroundAttachment">scroll</property>
+                                            <property name="backgroundPositionX">0%</property>
+                                            <property name="backgroundPositionY">0%</property>
+                                            <property name="backgroundRepeat">repeat</property>
+                                            <property name="fontFamily">"Calibri"</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="fontVariant">normal</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <property name="textLineThrough">none</property>
+                                            <property name="textOverline">none</property>
+                                            <property name="textUnderline">none</property>
+                                            <property name="borderBottomColor">#FFFFFF</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">medium</property>
+                                            <property name="borderLeftColor">black</property>
+                                            <property name="borderLeftStyle">none</property>
+                                            <property name="borderLeftWidth">medium</property>
+                                            <property name="borderRightColor">black</property>
+                                            <property name="borderRightStyle">none</property>
+                                            <property name="borderRightWidth">medium</property>
+                                            <property name="borderTopColor">#FFFFFF</property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="marginTop">0pt</property>
+                                            <property name="marginLeft">0pt</property>
+                                            <property name="marginBottom">0pt</property>
+                                            <property name="marginRight">0pt</property>
+                                            <property name="paddingTop">1pt</property>
+                                            <property name="paddingLeft">1pt</property>
+                                            <property name="paddingBottom">1pt</property>
+                                            <property name="paddingRight">1pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Fixed</property>
+                                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="letterSpacing">normal</property>
+                                            <property name="lineHeight">normal</property>
+                                            <property name="orphans">2</property>
+                                            <property name="textTransform">none</property>
+                                            <property name="whiteSpace">normal</property>
+                                            <property name="widows">2</property>
+                                            <property name="wordSpacing">normal</property>
+                                            <property name="display">block</property>
+                                            <property name="pageBreakAfter">auto</property>
+                                            <property name="pageBreakBefore">auto</property>
+                                            <property name="pageBreakInside">auto</property>
+                                            <property name="showIfBlank">false</property>
+                                            <property name="canShrink">false</property>
+                                            <property name="overflow">hidden</property>
+                                            <property name="resultSetColumn">Aggregation_Net</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="259"/>
+                                    <cell id="260"/>
+                                    <cell id="261"/>
+                                    <cell id="262"/>
+                                    <cell id="263"/>
+                                    <cell id="264"/>
+                                    <cell id="265"/>
+                                </row>
+                            </footer>
+                        </table>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="15">
+                    <cell id="16"/>
+                    <cell id="17"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="DateRange">
+            <expression name="value" type="javascript">params["ST_PD"].value + " to " + params["ED_PD"].value</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

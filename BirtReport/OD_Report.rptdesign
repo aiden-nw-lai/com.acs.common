@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="Start_Date" id="92">
+            <text-property name="promptText">Start Date (DD/MM/YYYY HH:MI:SS)</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">03/01/2016 00:00:00</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="ED_DATE" id="93">
+            <text-property name="promptText">End Date (DD/MM/YYYY HH:MI:SS)</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">03/01/2016 23:59:59</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="5">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="6">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">counter</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">counter</text-property>
+                    <text-property name="heading">counter</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">GetOnStationID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">GetOnStationID</text-property>
+                    <text-property name="heading">GetOnStationID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">GetOffStationID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">GetOffStationID</text-property>
+                    <text-property name="heading">GetOffStationID</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">st_datetime</property>
+                    <property name="paramName">Start_Date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">'03/01/2016 00:00:00'</expression>
+                    <property name="isOptional">true</property>
+                    <property name="allowNull">true</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ed_date</property>
+                    <property name="paramName">ED_DATE</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">'03/01/2016 23:59:59'</expression>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">counter</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">GetOnStationID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">GetOffStationID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">counter</property>
+                    <property name="nativeName">counter</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">GetOnStationID</property>
+                    <property name="nativeName">GetOnStationID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">GetOffStationID</property>
+                    <property name="nativeName">GetOffStationID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select count(*) as counter, GetOnStationID, GetOffStationID  from debittransaction 
+      where GetOffStationID is not null and GetOnStationID is not null 
+      and  txnDatetime >= ? and  txnDatetime < ?
+      group by GetOffStationID, GetOnStationID]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+          <design:precision>8</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Nullable</design:nullability>
+        </design:attributes>
+        <design:inputAttributes>
+          <design:elementAttributes>
+            <design:optional>true</design:optional>
+          </design:elementAttributes>
+        </design:inputAttributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+          <design:precision>23</design:precision>
+          <design:scale>3</design:scale>
+          <design:nullability>NotNullable</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>counter</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>counter</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>counter</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>GetOnStationID</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>8</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>GetOnStationID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>GetOnStationID</design:label>
+            <design:formattingHints>
+              <design:displaySize>8</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>GetOffStationID</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>8</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>GetOffStationID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>GetOffStationID</design:label>
+            <design:formattingHints>
+              <design:displaySize>8</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="7">
+            <property name="dimensions">
+                <tabular-dimension name="Group" id="8">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="9">
+                            <property name="levels">
+                                <tabular-level name="GetOnStationID" id="11">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">GetOnStationID</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Group-off" id="28">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="29">
+                            <property name="levels">
+                                <tabular-level name="GetOffStationID" id="30">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">GetOffStationID</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="45">
+                    <property name="measures">
+                        <tabular-measure name="counter" id="46">
+                            <expression name="measureExpression" type="javascript">dataSetRow["counter"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">Data Set</property>
+        </tabular-cube>
+    </cubes>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <data id="97">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Report Name</property>
+                    <text-property name="displayName">Report Name</text-property>
+                    <expression name="expression" type="javascript">vars["Report Name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">Report Name</property>
+        </data>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="71">
+            <property name="cube">Data Cube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="84">
+                    <property name="measure">counter</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="85">
+                            <property name="aggregationOnRow">Group/GetOnStationID</property>
+                            <property name="aggregationOnColumn">Group-off/GetOffStationID</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="width">50px</property>
+                            <property name="content">
+                                <data id="86">
+                                    <property name="backgroundColor">#FFFFFF</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="borderBottomColor">#C0C0C0</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#C0C0C0</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#C0C0C0</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#C0C0C0</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">center</property>
+                                    <list-property name="highlightRules">
+                                        <structure>
+                                            <property name="operator">is-not-null</property>
+                                            <property name="backgroundColor">#FF8000</property>
+                                            <property name="color">#000000</property>
+                                            <expression name="testExpr" type="javascript">data["counter_Group/GetOnStationID_Group-off/GetOffStationID"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">counter_Group/GetOnStationID_Group-off/GetOffStationID</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="99">
+                            <property name="aggregationOnRow">Group/GetOnStationID</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="content">
+                                <data id="100">
+                                    <property name="backgroundColor">#C0C0C0</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">counter_Group/GetOnStationID</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="105">
+                            <property name="content">
+                                <data id="106">
+                                    <property name="backgroundColor">#002E5B</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="color">#FFFFFF</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">counter</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="107">
+                            <property name="aggregationOnColumn">Group-off/GetOffStationID</property>
+                            <property name="content">
+                                <data id="108">
+                                    <property name="backgroundColor">#002E5B</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="color">#FFFFFF</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">counter_Group-off/GetOffStationID</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="87"/>
+                        <extended-item extensionName="CrosstabCell" id="101">
+                            <property name="content">
+                                <label id="102">
+                                    <text-property name="text">counter</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="73">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="104">
+                            <property name="content">
+                                <label id="109">
+                                    <property name="backgroundColor">#001851</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">#FFFFFF</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="74">
+                            <property name="dimension">Group</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="75">
+                                    <property name="level">Group/GetOnStationID</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="76">
+                                            <property name="content">
+                                                <data name="GetOnStationID" id="77">
+                                                    <property name="backgroundColor">#808080</property>
+                                                    <property name="fontFamily">"Calibri"</property>
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="color">#FFFFFF</property>
+                                                    <property name="paddingTop">0pt</property>
+                                                    <property name="paddingLeft">0pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">0pt</property>
+                                                    <property name="resultSetColumn">GetOnStationID</property>
+                                                </data>
+                                            </property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <property name="height">20px</property>
+                                            <property name="width">200px</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="79">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="98">
+                            <property name="content">
+                                <label id="103">
+                                    <property name="backgroundColor">#808080</property>
+                                    <property name="fontFamily">"Calibri"</property>
+                                    <property name="fontSize">8pt</property>
+                                    <property name="fontWeight">normal</property>
+                                    <property name="color">#FFFFFF</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">right</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="80">
+                            <property name="dimension">Group-off</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="81">
+                                    <property name="level">Group-off/GetOffStationID</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="82">
+                                            <property name="content">
+                                                <data name="GetOffStationID" id="83">
+                                                    <property name="backgroundColor">#808080</property>
+                                                    <property name="fontFamily">"Calibri"</property>
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="color">#FFFFFF</property>
+                                                    <property name="borderBottomStyle">none</property>
+                                                    <property name="borderLeftStyle">none</property>
+                                                    <property name="borderRightStyle">none</property>
+                                                    <property name="borderTopStyle">none</property>
+                                                    <property name="paddingTop">0pt</property>
+                                                    <property name="paddingLeft">0pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">0pt</property>
+                                                    <structure name="stringFormat">
+                                                        <property name="category">Custom</property>
+                                                    </structure>
+                                                    <property name="showIfBlank">true</property>
+                                                    <property name="resultSetColumn">GetOffStationID</property>
+                                                </data>
+                                            </property>
+                                            <property name="fontStyle">oblique</property>
+                                            <property name="backgroundPositionX">center</property>
+                                            <property name="verticalAlign">bottom</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="72">
+                    <property name="content">
+                        <label id="91">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <text-property name="text">GetOnStationID</text-property>
+                        </label>
+                    </property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
+                    <property name="borderTopColor">#C0C0C0</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">medium</property>
+                    <property name="borderLeftColor">#C0C0C0</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">medium</property>
+                    <property name="borderRightColor">#C0C0C0</property>
+                    <property name="paddingTop">0pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
+                </extended-item>
+            </property>
+            <property name="hideMeasureHeader">true</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">medium</property>
+            <property name="borderTopColor">#808080</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">medium</property>
+            <property name="borderLeftColor">#808080</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">medium</property>
+            <property name="borderBottomColor">#808080</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">medium</property>
+            <property name="borderRightColor">#808080</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">GetOnStationID</property>
+                    <expression name="expression">dimension["Group"]["GetOnStationID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">GetOffStationID</property>
+                    <expression name="expression">dimension["Group-off"]["GetOffStationID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">counter_Group/GetOnStationID_Group-off/GetOffStationID</property>
+                    <expression name="expression">measure["counter"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/GetOnStationID</value>
+                        <value>Group-off/GetOffStationID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">counter_Group/GetOnStationID</property>
+                    <expression name="expression">measure["counter"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/GetOnStationID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">counter</property>
+                    <expression name="expression">measure["counter"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">counter_Group-off/GetOffStationID</property>
+                    <expression name="expression">measure["counter"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group-off/GetOffStationID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="Report Name">
+            <expression name="value" type="javascript">"OD Report Between" + params["Start_Date"].value + " and " + params["ED_DATE"].value</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

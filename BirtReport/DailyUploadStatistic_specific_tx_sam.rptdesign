@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="st_upload_date" id="453">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">20160501</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="ed_uploaded_date" id="552">
+            <text-property name="promptText">end upload Date(YYYYMMDD)</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">20160501</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="tx_samcan" id="755">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">'0F8911290F01009E'</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">uploaddateREf</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">uploaddateREf</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">uploaddateREf</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">tx_date</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">tx_date</text-property>
+                    <text-property name="heading">tx_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">tx_samcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">tx_samcan</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">tx_samcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">tx_terminal</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">tx_terminal</text-property>
+                    <text-property name="heading">tx_terminal</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">upload_samcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">upload_samcan</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">upload_samcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">upload_terminal</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">upload_terminal</text-property>
+                    <text-property name="heading">upload_terminal</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">match_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">match_count</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">match_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">nonmatch_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">nonmatch_count</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">nonmatch_count</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">st_date</property>
+                    <property name="paramName">st_upload_date</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">"20160501"</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ed_date</property>
+                    <property name="paramName">ed_uploaded_date</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">"20160501"</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">tx_sam_can</property>
+                    <property name="paramName">tx_samcan</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <expression name="defaultValue" type="javascript">'0F8911290F01009E'</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">uploaddateREf</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">tx_date</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">tx_samcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">tx_terminal</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">upload_samcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">upload_terminal</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">match_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">nonmatch_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">uploaddateREf</property>
+                    <property name="nativeName">uploaddateREf</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">tx_date</property>
+                    <property name="nativeName">tx_date</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">tx_samcan</property>
+                    <property name="nativeName">tx_samcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">tx_terminal</property>
+                    <property name="nativeName">tx_terminal</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">upload_samcan</property>
+                    <property name="nativeName">upload_samcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">upload_terminal</property>
+                    <property name="nativeName">upload_terminal</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">match_count</property>
+                    <property name="nativeName">match_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">nonmatch_count</property>
+                    <property name="nativeName">nonmatch_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select uploaddateREf, src.Period_Analysis as tx_date, src.samcan as tx_samcan, mas1.TerminalCode as tx_terminal, 
+       uploadsamcan as upload_samcan, mas2.TerminalCode as upload_terminal, 
+       src.match_count, src.nonmatch_count from
+( 
+select uploaddateREf, uploadsamcan,  Period_Analysis, samcan, count(*) as counter,
+			sum(iif(uploadsamcan=samcan, 1, 0)) as match_count, 
+			sum(iif(uploadsamcan<>samcan, 1, 0)) as nonmatch_count from txnjournal
+			where uploaddateREf >= ? 
+				  and uploaddateREf <= ?
+			      and  samcan = ?
+			group by uploaddateREf, Period_Analysis, uploadsamcan, samcan, uploadsamcan
+			) as src left join terminalsam mas1
+			on mas1.SamCAN = src.samcan
+			left join terminalsam mas2
+			on mas2.SamCAN = src.uploadsamcan
+order by uploaddateREf, Period_Analysis, tx_samcan, upload_samcan]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUPLICATION COUNT</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUPLICATION COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUPLICATION COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCAN</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCAN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCAN</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCTC</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="438">
+            <property name="width">7.947916666666667in</property>
+            <column id="439">
+                <property name="width">4.260416666666667in</property>
+            </column>
+            <column id="440">
+                <property name="width">1.0416666666666667in</property>
+            </column>
+            <column id="441">
+                <property name="width">2.6458333333333335in</property>
+            </column>
+            <row id="442">
+                <cell id="443">
+                    <data id="95">
+                        <property name="fontFamily">"Calibri"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">#000080</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">REPORTNAME</property>
+                                <text-property name="displayName">REPORTNAME</text-property>
+                                <expression name="expression" type="javascript">vars["REPORTNAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">REPORTNAME</property>
+                    </data>
+                </cell>
+                <cell id="444"/>
+                <cell id="445"/>
+            </row>
+        </grid>
+        <table id="654">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">uploaddateREf</property>
+                    <text-property name="displayName">uploaddateREf</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["uploaddateREf"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">tx_date</property>
+                    <text-property name="displayName">tx_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["tx_date"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">tx_samcan</property>
+                    <text-property name="displayName">tx_samcan</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["tx_samcan"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">tx_terminal</property>
+                    <text-property name="displayName">tx_terminal</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["tx_terminal"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">upload_samcan</property>
+                    <text-property name="displayName">upload_samcan</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["upload_samcan"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">upload_terminal</property>
+                    <text-property name="displayName">upload_terminal</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["upload_terminal"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">match_count</property>
+                    <text-property name="displayName">match_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["match_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">nonmatch_count</property>
+                    <text-property name="displayName">nonmatch_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["nonmatch_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Group_UploadTime_Display</property>
+                    <text-property name="displayName">uploaddateREf</text-property>
+                    <expression name="expression" type="javascript">"Update Date time:" + String(dataSetRow["uploaddateREf"]).substr(0,4) + "-" +String(dataSetRow["uploaddateREf"]).substr(4,2);</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Group_SamCan_Display</property>
+                    <text-property name="displayName">tx_samcan</text-property>
+                    <expression name="expression" type="javascript">"Transaction SamCan#:" + dataSetRow["tx_samcan"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <text-property name="displayName">sam_total_match_count</text-property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>TX_SAM_GROUP</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["match_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">sam_total_match_count</property>
+                    <text-property name="displayName">sam_total_match_count</text-property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>TX_SAM_GROUP</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["match_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">sam_total_nonmatch_count</property>
+                    <text-property name="displayName">sam_total_nonmatch_count</text-property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>TX_SAM_GROUP</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["nonmatch_count"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="698"/>
+            <column id="699"/>
+            <column id="700"/>
+            <column id="701"/>
+            <column id="702"/>
+            <column id="703"/>
+            <column id="704"/>
+            <column id="705"/>
+            <header>
+                <row id="655">
+                    <cell id="656">
+                        <label id="661">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Transaction&#13;
+SAM</text-property>
+                        </label>
+                    </cell>
+                    <cell id="658">
+                        <label id="663">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Transaction&#13;
+Terminal</text-property>
+                        </label>
+                    </cell>
+                    <cell id="660">
+                        <label id="657">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Upload &#13;
+Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="662">
+                        <label id="659">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Transaction&#13;
+Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="664">
+                        <label id="665">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Upload &#13;
+SamCan</text-property>
+                        </label>
+                    </cell>
+                    <cell id="666">
+                        <label id="667">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Upload&#13;
+Terminal</text-property>
+                        </label>
+                    </cell>
+                    <cell id="668">
+                        <label id="669">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Upload by Same Terminal</text-property>
+                        </label>
+                    </cell>
+                    <cell id="670">
+                        <label id="671">
+                            <text-property name="text">Upload From Other Terminal</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="706">
+                <property name="groupName">UPLOAD_DATE</property>
+                <expression name="keyExpr" type="javascript">row["uploaddateREf"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["uploaddateREf"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="707">
+                        <property name="fontSize">10pt</property>
+                        <cell id="708">
+                            <property name="colSpan">5</property>
+                            <property name="rowSpan">1</property>
+                            <data id="725">
+                                <property name="fontSize">9pt</property>
+                                <property name="marginLeft">7pt</property>
+                                <property name="resultSetColumn">Group_UploadTime_Display</property>
+                            </data>
+                        </cell>
+                        <cell id="713"/>
+                        <cell id="714"/>
+                        <cell id="715"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="716">
+                        <cell id="717"/>
+                        <cell id="718"/>
+                        <cell id="719"/>
+                        <cell id="720"/>
+                        <cell id="721"/>
+                        <cell id="722"/>
+                        <cell id="723"/>
+                        <cell id="724"/>
+                    </row>
+                </footer>
+            </group>
+            <group id="726">
+                <property name="groupName">TX_SAM_GROUP</property>
+                <expression name="keyExpr" type="javascript">row["tx_samcan"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["tx_samcan"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <list-property name="sort">
+                    <structure>
+                        <expression name="key" type="javascript">row["tx_date"]</expression>
+                        <property name="direction">asc</property>
+                        <property name="strength">-1</property>
+                    </structure>
+                </list-property>
+                <header>
+                    <row id="727">
+                        <cell id="728">
+                            <property name="colSpan">8</property>
+                            <property name="rowSpan">1</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <data id="745">
+                                <property name="backgroundColor">#C0C0C0</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="color">#000040</property>
+                                <property name="resultSetColumn">Group_SamCan_Display</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+                <footer>
+                    <row id="736">
+                        <property name="backgroundColor">#DFEAF4</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">double</property>
+                        <property name="borderBottomWidth">medium</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">dashed</property>
+                        <property name="borderTopWidth">thin</property>
+                        <cell id="737"/>
+                        <cell id="738"/>
+                        <cell id="739"/>
+                        <cell id="740"/>
+                        <cell id="741"/>
+                        <cell id="742"/>
+                        <cell id="743">
+                            <data id="753">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">9pt</property>
+                                <list-property name="highlightRules">
+                                    <structure>
+                                        <property name="operator">eq</property>
+                                        <property name="backgroundColor">#FFFF00</property>
+                                        <property name="color">#FF0000</property>
+                                        <expression name="testExpr" type="javascript">row["sam_total_match_count"]</expression>
+                                        <simple-property-list name="value1">
+                                            <value type="javascript">0</value>
+                                        </simple-property-list>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">sam_total_match_count</property>
+                            </data>
+                        </cell>
+                        <cell id="744">
+                            <data id="754">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">9pt</property>
+                                <list-property name="highlightRules">
+                                    <structure>
+                                        <property name="operator">eq</property>
+                                        <property name="backgroundColor">#FF8000</property>
+                                        <property name="color">#0000A0</property>
+                                        <expression name="testExpr" type="javascript">(row["sam_total_match_count"]==0)&amp;&amp;(row["sam_total_nonmatch_count"] > 0)</expression>
+                                        <simple-property-list name="value1">
+                                            <value type="javascript">true</value>
+                                        </simple-property-list>
+                                    </structure>
+                                    <structure>
+                                        <property name="operator">eq</property>
+                                        <property name="backgroundColor">#400080</property>
+                                        <property name="color">#FFFF80</property>
+                                        <expression name="testExpr" type="javascript">(row["sam_total_match_count"]>0)&amp;&amp;(row["sam_total_nonmatch_count"] > 0)</expression>
+                                        <simple-property-list name="value1">
+                                            <value type="javascript">true</value>
+                                        </simple-property-list>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">sam_total_nonmatch_count</property>
+                            </data>
+                        </cell>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="672">
+                    <cell id="673">
+                        <data id="678">
+                            <property name="resultSetColumn">tx_samcan</property>
+                        </data>
+                    </cell>
+                    <cell id="675">
+                        <data id="680">
+                            <property name="resultSetColumn">tx_terminal</property>
+                        </data>
+                    </cell>
+                    <cell id="677">
+                        <text-data id="757">
+                            <expression name="valueExpr">String(row["uploaddateREf"]).substr(0,4) +  "-" + String(row["uploaddateREf"]).substr(4,2) + "-" + String(row["uploaddateREf"]).substr(6,2)</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                    <cell id="679">
+                        <text-data id="758">
+                            <expression name="valueExpr">String(row["tx_date"]).substr(0,4) +  "-" + String(row["tx_date"]).substr(4,2) + "-" + String(row["tx_date"]).substr(6,2)</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                    <cell id="681">
+                        <data id="682">
+                            <property name="resultSetColumn">upload_samcan</property>
+                        </data>
+                    </cell>
+                    <cell id="683">
+                        <data id="684">
+                            <property name="resultSetColumn">upload_terminal</property>
+                        </data>
+                    </cell>
+                    <cell id="685">
+                        <data id="686">
+                            <property name="resultSetColumn">match_count</property>
+                        </data>
+                    </cell>
+                    <cell id="687">
+                        <data id="688">
+                            <property name="resultSetColumn">nonmatch_count</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="689">
+                    <cell id="690"/>
+                    <cell id="691"/>
+                    <cell id="692"/>
+                    <cell id="693"/>
+                    <cell id="694"/>
+                    <cell id="695"/>
+                    <cell id="696"/>
+                    <cell id="697"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="REPORTNAME">
+            <expression name="value" type="javascript">"Daily Upload Statistic " + String(params["st_upload_date"].value).substr(0,4) + "-" +  String(params["st_upload_date"].value).substr(4 ,2) +  "-" +  String(params["st_upload_date"].value).substr(6 ,2)  +" to " +String(params["ed_uploaded_date"].value).substr(0,4) + "-" + String(params["ed_uploaded_date"].value).substr(4,2) + "-" + String(params["ed_uploaded_date"].value).substr(6,2)</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="RECORD_COUNT">
+            <expression name="value" type="javascript">0</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

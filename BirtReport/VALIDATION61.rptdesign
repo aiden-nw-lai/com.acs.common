@@ -1,0 +1,1645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">cardcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <text-property name="heading">cardcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Fund_Transfer_Credit_Cashier_Card_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Fund_Transfer_Credit_Cashier_Card_amount</text-property>
+                    <text-property name="heading">Fund_Transfer_Credit_Cashier_Card_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Fund_Transfer_Credit_Cashier_Card_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Fund_Transfer_Credit_Cashier_Card_count</text-property>
+                    <text-property name="heading">Fund_Transfer_Credit_Cashier_Card_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Fund_Transfer_Debit_Cashier_Card_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Fund_Transfer_Debit_Cashier_Card_amount</text-property>
+                    <text-property name="heading">Fund_Transfer_Debit_Cashier_Card_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Fund_Transfer_Debit_Cashier_Card_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Fund_Transfer_Debit_Cashier_Card_count</text-property>
+                    <text-property name="heading">Fund_Transfer_Debit_Cashier_Card_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topup_usercard_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topup_usercard_amount</text-property>
+                    <text-property name="heading">topup_usercard_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topup_usercard_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topup_usercard_count</text-property>
+                    <text-property name="heading">topup_usercard_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topup_debitcashiercard_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topup_debitcashiercard_amount</text-property>
+                    <text-property name="heading">topup_debitcashiercard_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topup_debitcashiercard_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topup_debitcashiercard_count</text-property>
+                    <text-property name="heading">topup_debitcashiercard_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topup_debitusercard_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topup_debitusercard_amount</text-property>
+                    <text-property name="heading">topup_debitusercard_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">topup_debitusercard_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">topup_debitusercard_count</text-property>
+                    <text-property name="heading">topup_debitusercard_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Cash_transaction_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Cash_transaction_amount</text-property>
+                    <text-property name="heading">Cash_transaction_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Cash_transaction_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Cash_transaction_count</text-property>
+                    <text-property name="heading">Cash_transaction_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TopupDeposit_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TopupDeposit_amount</text-property>
+                    <text-property name="heading">TopupDeposit_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TopupDeposit_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TopupDeposit_count</text-property>
+                    <text-property name="heading">TopupDeposit_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cardcan_1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <text-property name="heading">cardcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">min_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">min_ctc</text-property>
+                    <text-property name="heading">min_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">max_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">max_ctc</text-property>
+                    <text-property name="heading">max_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">opening_balance</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">opening_balance</text-property>
+                    <text-property name="heading">opening_balance</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TXNNature</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TXNNature</text-property>
+                    <text-property name="heading">TXNNature</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TxnTypeCode</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TxnTypeCode</text-property>
+                    <text-property name="heading">TxnTypeCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">txnamount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">txnamount</text-property>
+                    <text-property name="heading">txnamount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">closing_balance</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">closing_balance</text-property>
+                    <text-property name="heading">closing_balance</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">cardcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Fund_Transfer_Credit_Cashier_Card_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Fund_Transfer_Credit_Cashier_Card_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Fund_Transfer_Debit_Cashier_Card_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Fund_Transfer_Debit_Cashier_Card_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">topup_usercard_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">topup_usercard_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">topup_debitcashiercard_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">topup_debitcashiercard_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">topup_debitusercard_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">topup_debitusercard_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Cash_transaction_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Cash_transaction_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">TopupDeposit_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">TopupDeposit_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">cardcan_1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">min_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">max_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">opening_balance</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">TXNNature</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">TxnTypeCode</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">txnamount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">closing_balance</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">cardcan</property>
+                    <property name="nativeName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Fund_Transfer_Credit_Cashier_Card_amount</property>
+                    <property name="nativeName">Fund_Transfer_Credit_Cashier_Card_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Fund_Transfer_Credit_Cashier_Card_count</property>
+                    <property name="nativeName">Fund_Transfer_Credit_Cashier_Card_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Fund_Transfer_Debit_Cashier_Card_amount</property>
+                    <property name="nativeName">Fund_Transfer_Debit_Cashier_Card_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Fund_Transfer_Debit_Cashier_Card_count</property>
+                    <property name="nativeName">Fund_Transfer_Debit_Cashier_Card_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">topup_usercard_amount</property>
+                    <property name="nativeName">topup_usercard_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">topup_usercard_count</property>
+                    <property name="nativeName">topup_usercard_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">topup_debitcashiercard_amount</property>
+                    <property name="nativeName">topup_debitcashiercard_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">topup_debitcashiercard_count</property>
+                    <property name="nativeName">topup_debitcashiercard_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">topup_debitusercard_amount</property>
+                    <property name="nativeName">topup_debitusercard_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">topup_debitusercard_count</property>
+                    <property name="nativeName">topup_debitusercard_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Cash_transaction_amount</property>
+                    <property name="nativeName">Cash_transaction_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">Cash_transaction_count</property>
+                    <property name="nativeName">Cash_transaction_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">TopupDeposit_amount</property>
+                    <property name="nativeName">TopupDeposit_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">TopupDeposit_count</property>
+                    <property name="nativeName">TopupDeposit_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">cardcan_1</property>
+                    <property name="nativeName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">min_ctc</property>
+                    <property name="nativeName">min_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">max_ctc</property>
+                    <property name="nativeName">max_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">opening_balance</property>
+                    <property name="nativeName">opening_balance</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">TXNNature</property>
+                    <property name="nativeName">TXNNature</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">TxnTypeCode</property>
+                    <property name="nativeName">TxnTypeCode</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-6</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">txnamount</property>
+                    <property name="nativeName">txnamount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">closing_balance</property>
+                    <property name="nativeName">closing_balance</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[ select * from ( 
+                 select cardcan,
+         SUM(CASE WHEN TXNTYPECODE = '193' THEN txnamount ELSE 0 END ) 
+				  AS Fund_Transfer_Credit_Cashier_Card_amount ,
+        SUM(CASE WHEN TXNTYPECODE = '193' THEN 1 ELSE 0 END ) 
+				  AS Fund_Transfer_Credit_Cashier_Card_count ,				  
+		 SUM(CASE WHEN TXNTYPECODE = '194' THEN txnamount * -1 ELSE 0 END	)
+				  AS Fund_Transfer_Debit_Cashier_Card_amount,
+		 SUM(CASE WHEN TXNTYPECODE = '194' THEN 1 ELSE 0 END	)
+				  AS Fund_Transfer_Debit_Cashier_Card_count, 
+				  
+		SUM(CASE WHEN TXNTYPECODE = '210' THEN txnamount ELSE 0 END	)
+				  AS topup_usercard_amount ,
+		SUM(CASE WHEN TXNTYPECODE = '210' THEN 1 ELSE 0 END	)
+				  AS topup_usercard_count ,				  
+  		SUM(CASE WHEN TXNTYPECODE = '211' THEN txnamount ELSE 0 END	)
+				  AS topup_debitcashiercard_amount,
+  		SUM(CASE WHEN TXNTYPECODE = '211' THEN 1 ELSE 0 END	)
+				  AS topup_debitcashiercard_count, 				  
+  		SUM(CASE WHEN TXNTYPECODE = '212' THEN txnamount ELSE 0 END	)
+				  AS topup_debitusercard_amount,
+  		SUM(CASE WHEN TXNTYPECODE = '212' THEN 1 ELSE 0 END	)
+				  AS topup_debitusercard_count, 						  
+		SUM(CASE WHEN TXNTYPECODE = '195' THEN txnamount ELSE 0 END	)
+				  AS Cash_transaction_amount ,
+		SUM(CASE WHEN TXNTYPECODE = '195' THEN 1 ELSE 0 END	)
+				  AS Cash_transaction_count ,				  
+        SUM(CASE WHEN TXNTYPECODE = '196' THEN txnamount ELSE 0 END	)
+				  AS TopupDeposit_amount,
+        SUM(CASE WHEN TXNTYPECODE = '196' THEN 1 ELSE 0 END	)
+				  AS TopupDeposit_count					  
+		from txnJournal (readpast) 
+		--where cardcan ='000411390F00000A'
+		group by cardcan
+		--order by cardcan
+		) as statistic, 
+
+ (         
+         
+         
+         select max_set.cardcan, min_set.cardctc as min_ctc, max_set.cardctc as max_ctc, 
+         		min_set.balancebefore as opening_balance, min_set.TXNNature, min_set.TxnTypeCode, min_set.txnamount, max_set.balanceafter as closing_balance
+         from (
+         select y.cardcan, y.cardctc, y.balancebefore, y.balanceafter, y.TxnAmount from (
+         select cardcan, max(cardctc) as maxctc from txnJournal group by cardcan
+         ) as x inner join txnJournal (readpast) as y  on y.cardcan = x.cardcan and y.cardctc = x.maxctc
+         ) max_set inner join (
+         
+         select y.cardcan, y.cardctc, y.balancebefore, y.balanceafter, y.TxnAmount, y.TXNNature, y.TxnTypeCode from (
+         select cardcan, min(cardctc) as minctc from txnJournal (readpast)  group by cardcan
+         ) as x inner join txnJournal as y  on y.cardcan = x.cardcan and y.cardctc = x.minctc
+         ) as min_set on max_set.cardcan = min_set.cardcan
+         ) basic where basic.cardcan = statistic.cardcan
+         order by basic.cardcan]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cardcan</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cardcan</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cardcan</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Fund_Transfer_Credit_Cashier_Card_amount</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Fund_Transfer_Credit_Cashier_Card_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Fund_Transfer_Credit_Cashier_Card_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Fund_Transfer_Credit_Cashier_Card_count</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Fund_Transfer_Credit_Cashier_Card_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Fund_Transfer_Credit_Cashier_Card_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Fund_Transfer_Debit_Cashier_Card_amount</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Fund_Transfer_Debit_Cashier_Card_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Fund_Transfer_Debit_Cashier_Card_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Fund_Transfer_Debit_Cashier_Card_count</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Fund_Transfer_Debit_Cashier_Card_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Fund_Transfer_Debit_Cashier_Card_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topup_usercard_amount</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topup_usercard_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topup_usercard_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topup_usercard_count</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topup_usercard_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topup_usercard_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topup_debitcashiercard_amount</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topup_debitcashiercard_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topup_debitcashiercard_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topup_debitcashiercard_count</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topup_debitcashiercard_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topup_debitcashiercard_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topup_debitusercard_amount</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topup_debitusercard_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topup_debitusercard_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>topup_debitusercard_count</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>topup_debitusercard_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>topup_debitusercard_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Cash_transaction_amount</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Cash_transaction_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Cash_transaction_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Cash_transaction_count</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>Cash_transaction_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Cash_transaction_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TopupDeposit_amount</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TopupDeposit_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TopupDeposit_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TopupDeposit_count</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TopupDeposit_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TopupDeposit_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cardcan</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cardcan</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cardcan</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>min_ctc</design:name>
+              <design:position>17</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>min_ctc</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>min_ctc</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>max_ctc</design:name>
+              <design:position>18</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>max_ctc</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>max_ctc</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>opening_balance</design:name>
+              <design:position>19</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>opening_balance</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>opening_balance</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TXNNature</design:name>
+              <design:position>20</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TXNNature</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TXNNature</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TxnTypeCode</design:name>
+              <design:position>21</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-6</design:nativeDataTypeCode>
+            <design:precision>3</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TxnTypeCode</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TxnTypeCode</design:label>
+            <design:formattingHints>
+              <design:displaySize>3</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>txnamount</design:name>
+              <design:position>22</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>txnamount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>txnamount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>closing_balance</design:name>
+              <design:position>23</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>closing_balance</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>closing_balance</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="211">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">13pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">All card with starting, ending ctc/opening,closing balance/summation</text-property>
+        </label>
+        <table id="6">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">cardcan</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cardcan"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Fund_Transfer_Credit_Cashier_Card_amount</property>
+                    <text-property name="displayName">Fund_Transfer_Credit_Cashier_Card_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Fund_Transfer_Credit_Cashier_Card_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Fund_Transfer_Credit_Cashier_Card_count</property>
+                    <text-property name="displayName">Fund_Transfer_Credit_Cashier_Card_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Fund_Transfer_Credit_Cashier_Card_count"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Fund_Transfer_Debit_Cashier_Card_amount</property>
+                    <text-property name="displayName">Fund_Transfer_Debit_Cashier_Card_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Fund_Transfer_Debit_Cashier_Card_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Fund_Transfer_Debit_Cashier_Card_count</property>
+                    <text-property name="displayName">Fund_Transfer_Debit_Cashier_Card_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Fund_Transfer_Debit_Cashier_Card_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">topup_usercard_amount</property>
+                    <text-property name="displayName">topup_usercard_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topup_usercard_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">topup_usercard_count</property>
+                    <text-property name="displayName">topup_usercard_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topup_usercard_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">topup_debitcashiercard_amount</property>
+                    <text-property name="displayName">topup_debitcashiercard_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topup_debitcashiercard_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">topup_debitcashiercard_count</property>
+                    <text-property name="displayName">topup_debitcashiercard_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topup_debitcashiercard_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">topup_debitusercard_amount</property>
+                    <text-property name="displayName">topup_debitusercard_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topup_debitusercard_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">topup_debitusercard_count</property>
+                    <text-property name="displayName">topup_debitusercard_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["topup_debitusercard_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Cash_transaction_amount</property>
+                    <text-property name="displayName">Cash_transaction_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Cash_transaction_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Cash_transaction_count</property>
+                    <text-property name="displayName">Cash_transaction_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Cash_transaction_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">TopupDeposit_amount</property>
+                    <text-property name="displayName">TopupDeposit_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TopupDeposit_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TopupDeposit_count</property>
+                    <text-property name="displayName">TopupDeposit_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TopupDeposit_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">cardcan_1</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cardcan_1"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">min_ctc</property>
+                    <text-property name="displayName">min_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["min_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">max_ctc</property>
+                    <text-property name="displayName">max_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["max_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">opening_balance</property>
+                    <text-property name="displayName">opening_balance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["opening_balance"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TXNNature</property>
+                    <text-property name="displayName">TXNNature</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TXNNature"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TxnTypeCode</property>
+                    <text-property name="displayName">TxnTypeCode</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TxnTypeCode"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">txnamount</property>
+                    <text-property name="displayName">txnamount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["txnamount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">closing_balance</property>
+                    <text-property name="displayName">closing_balance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["closing_balance"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="125">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+            </column>
+            <column id="151">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="126">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="128">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="130">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="132">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="134">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="136">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="137">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="138">
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="141">
+                <property name="backgroundColor">#AFBEF8</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">center</property>
+                <property name="width">15px</property>
+            </column>
+            <column id="142">
+                <property name="backgroundColor">#73A2F0</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">center</property>
+                <property name="width">15px</property>
+            </column>
+            <column id="144">
+                <property name="backgroundColor">#73A2F0</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">center</property>
+            </column>
+            <column id="183">
+                <property name="backgroundColor">#73A2F0</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">center</property>
+            </column>
+            <column id="187">
+                <property name="backgroundColor">#73A2F0</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+                <property name="width">0.7083333333333334in</property>
+            </column>
+            <column id="171">
+                <property name="backgroundColor">#D0DEFD</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+                <property name="width">10px</property>
+            </column>
+            <column id="175">
+                <property name="backgroundColor">#D0DEFD</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="163">
+                <property name="backgroundColor">#D0DEFD</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="179">
+                <property name="backgroundColor">#D0DEFD</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="167">
+                <property name="backgroundColor">#D0DEFD</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="159">
+                <property name="backgroundColor">#D0DEFD</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <column id="155">
+                <property name="backgroundColor">#D0DEFD</property>
+                <property name="fontFamily">"Calibri"</property>
+                <property name="fontSize">8pt</property>
+                <property name="textAlign">right</property>
+            </column>
+            <header>
+                <row id="7">
+                    <property name="verticalAlign">bottom</property>
+                    <cell id="8">
+                        <label id="9">
+                            <text-property name="text">cardcan</text-property>
+                        </label>
+                    </cell>
+                    <cell id="148">
+                        <label id="45">
+                            <text-property name="text">Opening &#13;
+Balance</text-property>
+                        </label>
+                    </cell>
+                    <cell id="10">
+                        <label id="11">
+                            <text-property name="text">Fund Transfer &#13;
+Credit Cashier Card ($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="14">
+                        <label id="15">
+                            <text-property name="text">Fund Transfer &#13;
+Debit Cashier Card &#13;
+($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="18">
+                        <label id="19">
+                            <text-property name="text">topup &#13;
+usercard&#13;
+ ($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="22">
+                        <label id="27">
+                            <text-property name="text">topup &#13;
+debit &#13;
+user card ($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="26">
+                        <label id="23">
+                            <text-property name="text">topup &#13;
+Debit Cashier card&#13;
+($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="30">
+                        <label id="31">
+                            <text-property name="text">Cash &#13;
+transaction &#13;
+($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="32">
+                        <label id="35">
+                            <text-property name="text">Topup &#13;
+Deposit &#13;
+($)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="34">
+                        <label id="53">
+                            <text-property name="text">Closing &#13;
+Balance</text-property>
+                        </label>
+                    </cell>
+                    <cell id="40">
+                        <label id="41">
+                            <text-property name="text">Intit &#13;
+CTC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="42">
+                        <label id="43">
+                            <text-property name="text">Last &#13;
+CTC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="46">
+                        <label id="47">
+                            <text-property name="text">Init Tx Nature</text-property>
+                        </label>
+                    </cell>
+                    <cell id="180">
+                        <label id="49">
+                            <text-property name="text">Init.&#13;
+ Txn Type &#13;
+code</text-property>
+                        </label>
+                    </cell>
+                    <cell id="184">
+                        <label id="51">
+                            <text-property name="text">Init &#13;
+Amount</text-property>
+                        </label>
+                    </cell>
+                    <cell id="168">
+                        <label id="13">
+                            <property name="color">#000040</property>
+                            <text-property name="text">Fund Transfer &#13;
+Credit Cashier Card&#13;
+ (#)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="172">
+                        <label id="17">
+                            <property name="color">#000040</property>
+                            <text-property name="text">Fund Transfer &#13;
+Debit Cashier Card &#13;
+(#)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="160">
+                        <label id="21">
+                            <property name="color">#000040</property>
+                            <text-property name="text">topup &#13;
+usercard &#13;
+(#)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="176">
+                        <label id="29">
+                            <property name="color">#000040</property>
+                            <text-property name="text">Topup &#13;
+Debit User card &#13;
+(#)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="164">
+                        <label id="25">
+                            <property name="color">#000040</property>
+                            <text-property name="text">Topup &#13;
+Debit Cashier Card&#13;
+(#)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="156">
+                        <label id="33">
+                            <property name="color">#000040</property>
+                            <text-property name="text">Cash Transaction &#13;
+(#)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="152">
+                        <label id="37">
+                            <property name="color">#000040</property>
+                            <text-property name="text">Topup &#13;
+Deposit &#13;
+(#)</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="54">
+                    <property name="fontSize">8pt</property>
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="55">
+                        <data id="56">
+                            <property name="resultSetColumn">cardcan</property>
+                        </data>
+                    </cell>
+                    <cell id="149">
+                        <data id="92">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">opening_balance</property>
+                        </data>
+                    </cell>
+                    <cell id="57">
+                        <data id="58">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">Fund_Transfer_Credit_Cashier_Card_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="61">
+                        <data id="62">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">Fund_Transfer_Debit_Cashier_Card_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="65">
+                        <data id="66">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">topup_usercard_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="69">
+                        <data id="74">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">topup_debitusercard_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="73">
+                        <data id="70">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">topup_debitcashiercard_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="77">
+                        <data id="78">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">Cash_transaction_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="79">
+                        <data id="82">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">TopupDeposit_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="81">
+                        <data id="100">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">closing_balance</property>
+                        </data>
+                    </cell>
+                    <cell id="87">
+                        <data id="88">
+                            <property name="resultSetColumn">min_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="89">
+                        <data id="90">
+                            <property name="resultSetColumn">max_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="93">
+                        <data id="94">
+                            <property name="resultSetColumn">TXNNature</property>
+                        </data>
+                    </cell>
+                    <cell id="181">
+                        <data id="96">
+                            <property name="resultSetColumn">TxnTypeCode</property>
+                        </data>
+                    </cell>
+                    <cell id="185">
+                        <data id="98">
+                            <property name="resultSetColumn">txnamount</property>
+                        </data>
+                    </cell>
+                    <cell id="169">
+                        <data id="60">
+                            <property name="resultSetColumn">Fund_Transfer_Credit_Cashier_Card_count</property>
+                        </data>
+                    </cell>
+                    <cell id="173">
+                        <data id="64">
+                            <property name="resultSetColumn">Fund_Transfer_Debit_Cashier_Card_count</property>
+                        </data>
+                    </cell>
+                    <cell id="161">
+                        <data id="68">
+                            <property name="resultSetColumn">topup_usercard_count</property>
+                        </data>
+                    </cell>
+                    <cell id="177">
+                        <data id="76">
+                            <property name="resultSetColumn">topup_debitusercard_count</property>
+                        </data>
+                    </cell>
+                    <cell id="165">
+                        <data id="72">
+                            <property name="resultSetColumn">topup_debitcashiercard_count</property>
+                        </data>
+                    </cell>
+                    <cell id="157">
+                        <data id="80">
+                            <property name="resultSetColumn">Cash_transaction_count</property>
+                        </data>
+                    </cell>
+                    <cell id="153">
+                        <data id="84">
+                            <property name="resultSetColumn">TopupDeposit_count</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="101">
+                    <cell id="102"/>
+                    <cell id="150"/>
+                    <cell id="103"/>
+                    <cell id="105"/>
+                    <cell id="107"/>
+                    <cell id="109"/>
+                    <cell id="111"/>
+                    <cell id="113"/>
+                    <cell id="114"/>
+                    <cell id="115"/>
+                    <cell id="118"/>
+                    <cell id="119"/>
+                    <cell id="121"/>
+                    <cell id="182"/>
+                    <cell id="186"/>
+                    <cell id="170"/>
+                    <cell id="174"/>
+                    <cell id="162"/>
+                    <cell id="178"/>
+                    <cell id="166"/>
+                    <cell id="158"/>
+                    <cell id="154"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

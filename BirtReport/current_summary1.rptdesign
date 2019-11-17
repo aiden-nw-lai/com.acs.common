@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Display_tx_month</property>
+                    <expression name="expression">if (row["period_analysis_month"] == null){&#13;
+	String(row["period_analysis_month"])&#13;
+} else {&#13;
+	row["period_analysis_month"].toString().substr(0,4) + "-" + row["period_analysis_month"].toString().substr(4,2)&#13;
+	}</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">counter</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">counter</text-property>
+                    <text-property name="heading">counter</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">period_analysis_month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">period_analysis_month</text-property>
+                    <text-property name="heading">period_analysis_month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_IN</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_IN</text-property>
+                    <text-property name="heading">CASH_IN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_IN_COUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_IN_COUNT</text-property>
+                    <text-property name="heading">CASH_IN_COUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_OUT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_OUT</text-property>
+                    <text-property name="heading">CASH_OUT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_OUT_COUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CASH_OUT_COUNT</text-property>
+                    <text-property name="heading">CASH_OUT_COUNT</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">counter</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">period_analysis_month</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">CASH_IN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">CASH_IN_COUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CASH_OUT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">CASH_OUT_COUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Display_tx_month</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">counter</property>
+                    <property name="nativeName">counter</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">period_analysis_month</property>
+                    <property name="nativeName">period_analysis_month</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">CASH_IN</property>
+                    <property name="nativeName">CASH_IN</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CASH_IN_COUNT</property>
+                    <property name="nativeName">CASH_IN_COUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CASH_OUT</property>
+                    <property name="nativeName">CASH_OUT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">CASH_OUT_COUNT</property>
+                    <property name="nativeName">CASH_OUT_COUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select top 2 count(*) as counter,  
+period_analysis_month,
+  SUM(CASE WHEN TXNTYPECODE = '210' OR TXNTYPECODE = '209' or TXNTYPECODE = '193' OR TXNTYPECODE = '196' OR TXNTYPECODE = '198' THEN txnamount ELSE 0 END
+				 	) 
+				  AS CASH_IN , 
+           SUM(CASE WHEN TXNTYPECODE = '210' OR TXNTYPECODE = '209' or TXNTYPECODE = '193' OR TXNTYPECODE = '196' OR TXNTYPECODE = '198' THEN 1 ELSE 0 END
+				 	) 
+				  AS CASH_IN_COUNT , 				  
+			SUM(
+				 CASE WHEN TXNTYPECODE = '211' or  TXNTYPECODE = '212' OR  TXNTYPECODE = '194' OR TXNTYPECODE = '177' OR TXNTYPECODE = '192' OR TXNTYPECODE = '202' THEN txnamount ELSE 0 END
+				 )
+				  AS CASH_OUT,
+			SUM(
+				 CASE WHEN TXNTYPECODE = '211' or  TXNTYPECODE = '212' OR  TXNTYPECODE = '194' OR TXNTYPECODE = '177'OR TXNTYPECODE = '192'  OR TXNTYPECODE = '202'  THEN 1 ELSE 0 END
+				 )
+				  AS CASH_OUT_COUNT		  
+from txnJournal	 (readpast)
+WHERE		  
+period_analysis_month in ((CONVERT(INT,LEFT(CONVERT(varchar, GetDate(),112),6))), 
+(CONVERT(INT,LEFT(CONVERT(varchar, dateadd(month, -1, getdate()),112),6)))
+--,(CONVERT(INT,LEFT(CONVERT(varchar, dateadd(month, -2, getdate()),112),6)))
+) AND TXNTYPECODE != '204'
+--period_analysis_month <=(CONVERT(INT,LEFT(CONVERT(varchar, GetDate(),112),6))) and 
+--period_analysis_month >= (CONVERT(INT,LEFT(CONVERT(varchar, dateadd(month, -1, getdate()),112),6)))
+group by period_analysis_month ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>counter</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>counter</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>counter</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>period_analysis_month</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>period_analysis_month</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>period_analysis_month</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_IN</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_IN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_IN</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_IN_COUNT</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_IN_COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_IN_COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_OUT</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_OUT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_OUT</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CASH_OUT_COUNT</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CASH_OUT_COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CASH_OUT_COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+</report>

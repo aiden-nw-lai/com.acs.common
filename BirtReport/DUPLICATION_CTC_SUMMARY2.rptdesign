@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">5</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">cardcan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cardcan</text-property>
+                    <text-property name="heading">cardcan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_counter</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_counter</text-property>
+                    <text-property name="heading">total_counter</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DUPLICATE_RECORD_COUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">DUPLICATE_RECORD_COUNT</text-property>
+                    <text-property name="heading">DUPLICATE_RECORD_COUNT</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">cardcan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">total_counter</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DUPLICATE_RECORD_COUNT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">cardcan</property>
+                    <property name="nativeName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">total_counter</property>
+                    <property name="nativeName">total_counter</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">DUPLICATE_RECORD_COUNT</property>
+                    <property name="nativeName">DUPLICATE_RECORD_COUNT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select jl.cardcan, count(*) as total_counter, result_gp1.DUPLICATE_RECORD_COUNT 
+from txnjournal jl (readpast) 
+   inner join (
+   
+  		 SELECT CARDCAN, COUNT(*) AS DUPLICATE_RECORD_COUNT
+		FROM 
+		(
+		   SELECT CARDCAN, CARDCTC  
+		   FROM TXNJOURNAL (readpast) 
+		   WHERE TXNTYPECODE <> 204
+		   GROUP BY CARDCAN, CARDCTC HAVING COUNT(*) >= 2
+		) DUPLICATION
+		GROUP BY CARDCAN
+	) result_gp1
+	on jl.cardcan = result_gp1.cardcan
+	group by jl.cardcan, DUPLICATE_RECORD_COUNT
+	order by Duplicate_record_count, total_counter, cardcan
+	]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUPLICATION COUNT</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUPLICATION COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUPLICATION COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCAN</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCAN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCAN</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCTC</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="438">
+            <column id="439"/>
+            <column id="440"/>
+            <column id="441"/>
+            <row id="442">
+                <cell id="443">
+                    <data id="95">
+                        <property name="fontFamily">"Calibri"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">#000080</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">REPORTNAME</property>
+                                <text-property name="displayName">REPORTNAME</text-property>
+                                <expression name="expression" type="javascript">vars["REPORTNAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">REPORTNAME</property>
+                    </data>
+                </cell>
+                <cell id="444">
+                    <label id="446">
+                        <property name="fontFamily">"Calibri"</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">#004080</property>
+                        <property name="textAlign">right</property>
+                        <text-property name="text">Detail</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">DUPLICATION_CTC.rptdesign</property>
+                                <property name="targetWindow">_blank</property>
+                                <property name="targetFileType">report-design</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">Starting Date</property>
+                                        <simple-property-list name="expression">
+                                            <value type="javascript">19700101</value>
+                                        </simple-property-list>
+                                    </structure>
+                                    <structure>
+                                        <property name="paramName">Ending Date</property>
+                                        <simple-property-list name="expression">
+                                            <value type="javascript">29990101</value>
+                                        </simple-property-list>
+                                    </structure>
+                                    <structure>
+                                        <property name="paramName">Duplication count</property>
+                                        <simple-property-list name="expression">
+                                            <value type="javascript">2</value>
+                                        </simple-property-list>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="445"/>
+            </row>
+        </grid>
+        <table id="163">
+            <property name="width">5.020833333333333in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">DUPLICATE_RECORD_COUNT</property>
+                    <text-property name="displayName">DUPLICATE_RECORD_COUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DUPLICATE_RECORD_COUNT"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">CARDCAN</property>
+                    <text-property name="displayName">CARDCAN</text-property>
+                    <expression name="expression" type="javascript">vars["Group_Count"]++;&#13;
+vars["RECORD_COUNT"]++;&#13;
+dataSetRow["cardcan"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">total_counter</property>
+                    <text-property name="displayName">total_counter</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_counter"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <column id="187">
+                <property name="textAlign">left</property>
+                <property name="width">1.6041666666666667in</property>
+            </column>
+            <column id="451">
+                <property name="textAlign">right</property>
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <column id="188">
+                <property name="textAlign">right</property>
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <header>
+                <row id="164">
+                    <property name="verticalAlign">bottom</property>
+                    <cell id="165">
+                        <label id="166">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">CARDCAN</text-property>
+                        </label>
+                    </cell>
+                    <cell id="448">
+                        <label id="452">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">Tx Total</text-property>
+                        </label>
+                    </cell>
+                    <cell id="167">
+                        <label id="436">
+                            <text-property name="text">Duplicate Record Count</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="455">
+                <property name="groupName">tx_total</property>
+                <expression name="keyExpr" type="javascript">row["total_counter"]</expression>
+                <expression name="bookmark" type="javascript">row["total_counter"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["total_counter"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="456">
+                        <cell id="457">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <text-data id="468">
+                                <expression name="valueExpr">"Card with " + row["total_counter"] + " transacations"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                        <cell id="459"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="460">
+                        <cell id="461">
+                            <property name="colSpan">3</property>
+                            <property name="rowSpan">1</property>
+                            <text-data id="469">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">#0000FF</property>
+                                <expression name="valueExpr">"Total Number of Card with (" + String( row["total_counter"]) + ") Tranaction : " + String(vars["Group_Count"]);&#13;
+vars["Group_Count"] = 0;</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="173">
+                    <property name="borderBottomColor">#9D9D9D</property>
+                    <property name="borderBottomStyle">dotted</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#B4B4B4</property>
+                    <property name="borderLeftStyle">dashed</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#B4B4B4</property>
+                    <property name="borderRightStyle">dashed</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#9D9D9D</property>
+                    <property name="borderTopStyle">dotted</property>
+                    <property name="borderTopWidth">thin</property>
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">ne</property>
+                            <property name="backgroundColor">#E1E1E1</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="174">
+                        <data id="447">
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="marginLeft">2pt</property>
+                            <property name="resultSetColumn">CARDCAN</property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">card_txdetail.rptdesign</property>
+                                    <property name="targetWindow">_blank</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">Card Can</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">row["CARDCAN"]</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">StartCtc</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">0</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">EndCTC</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">9999999</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">SORTING_SEQ1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">2</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">SORTING_SEQ2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">3</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </data>
+                    </cell>
+                    <cell id="449">
+                        <data id="454">
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">total_counter</property>
+                        </data>
+                    </cell>
+                    <cell id="176">
+                        <data id="453">
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">DUPLICATE_RECORD_COUNT</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="182">
+                    <cell id="183"/>
+                    <cell id="450"/>
+                    <cell id="184">
+                        <data id="435">
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">normal</property>
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">RECORD_COUNT</property>
+                                    <text-property name="displayName">RECORD_COUNT</text-property>
+                                    <expression name="expression" type="javascript">vars["RECORD_COUNT"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">RECORD_COUNT</property>
+                        </data>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="REPORTNAME">
+            <expression name="value" type="javascript">"CTC Duplication SUMMARY "</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="RECORD_COUNT">
+            <expression name="value" type="javascript">0</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="Group_Count">
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

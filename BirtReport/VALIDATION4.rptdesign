@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">110</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">110</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">110</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/simple_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.simplelisting</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="cardcan" id="247">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0004113A0F011123</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="New BIRT JDBC Data Source" id="25">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="110">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">amt_diff_15</property>
+                    <expression name="expression">row["balanceafter"]-row["next_opening"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">cancard</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cancard</text-property>
+                    <text-property name="heading">cancard</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TxnDateTime</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TxnDateTime</text-property>
+                    <text-property name="heading">TxnDateTime</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">samctc</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">samctc</text-property>
+                    <text-property name="heading">samctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">prev_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">prev_ctc</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">prev_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cardctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">cardctc</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">cardctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">next_ctc</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">next_ctc</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">next_ctc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period_Analysis_month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Period_Analysis_month</text-property>
+                    <text-property name="heading">Period_Analysis_month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period_Analysis</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Period_Analysis</text-property>
+                    <text-property name="heading">Period_Analysis</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">diff_count</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">diff_count</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">diff_count</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">next_opening</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">next_opening</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">next_opening</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">balanceafter</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">balanceafter</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">balanceafter</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">txamount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">txamount</text-property>
+                    <text-property name="heading">txamount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">amt_diff</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">amt_diff</text-property>
+                    <text-property name="heading">amt_diff</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">txnNature</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">txnNature</text-property>
+                    <text-property name="heading">txnNature</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TicketTypecode</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TicketTypecode</text-property>
+                    <text-property name="heading">TicketTypecode</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">cardcan1</property>
+                    <property name="paramName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">cardcan2</property>
+                    <property name="paramName">cardcan</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">cancard</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TxnDateTime</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">samctc</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">prev_ctc</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">cardctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">next_ctc</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Period_Analysis_month</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Period_Analysis</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">diff_count</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">next_opening</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">balanceafter</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">txamount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">amt_diff</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">txnNature</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">TicketTypecode</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">amt_diff_15</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">New BIRT JDBC Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">cancard</property>
+                    <property name="nativeName">cancard</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TxnDateTime</property>
+                    <property name="nativeName">TxnDateTime</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">samctc</property>
+                    <property name="nativeName">samctc</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">prev_ctc</property>
+                    <property name="nativeName">prev_ctc</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">cardctc</property>
+                    <property name="nativeName">cardctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">next_ctc</property>
+                    <property name="nativeName">next_ctc</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Period_Analysis_month</property>
+                    <property name="nativeName">Period_Analysis_month</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">Period_Analysis</property>
+                    <property name="nativeName">Period_Analysis</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">diff_count</property>
+                    <property name="nativeName">diff_count</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">next_opening</property>
+                    <property name="nativeName">next_opening</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">balanceafter</property>
+                    <property name="nativeName">balanceafter</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">txamount</property>
+                    <property name="nativeName">txamount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">amt_diff</property>
+                    <property name="nativeName">amt_diff</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">txnNature</property>
+                    <property name="nativeName">txnNature</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">TicketTypecode</property>
+                    <property name="nativeName">TicketTypecode</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-6</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+Journal.cardcan as cancard, 
+Journal.txnDatetime as TxnDateTime
+,Journal.samcan as samctc
+, '' as prev_ctc
+, Journal.cardctc cardctc
+, nex.cardctc next_ctc
+, Journal.Period_Analysis_month
+, Journal.Period_Analysis, (nex.cardctc-Journal.cardctc) as diff_count
+, nex.balancebefore next_opening
+, Journal.balanceafter as balanceafter
+, Journal.txnamount as txamount
+, (journal.balanceafter-nex.balancebefore) amt_diff
+, Journal.txnNature 
+, Journal.TicketTypecode from (
+SELECT
+rownum = ROW_NUMBER() OVER (ORDER BY p.cardcan, p.cardctc),
+p.cardcan, p.cardctc, p.txnAmount, p.SamCAN, p.Period_Analysis,p.Period_Analysis_month, p.UploadDateReference, p.SamCTC, p.ticketTypecode, p.txnNature
+, p.balancebefore, p.balanceafter , txnDateTime
+FROM txnJournal p (readpast) 
+where txnTypecode <> '204'
+--and period_analysis_month = 201601
+and cardcan = ?
+--and period_Analysis >= 20160101 and period_Analysis < 20160104
+) as journal left join 
+(
+SELECT
+rownum = ROW_NUMBER() OVER (ORDER BY p.cardcan, p.cardctc),
+p.cardcan, p.cardctc, p.txnAmount, p.SamCAN, p.Period_Analysis,p.Period_Analysis_month, p.UploadDateReference, p.SamCTC, p.ticketTypecode, p.txnNature
+, p.balancebefore, p.balanceafter , txnDateTime
+FROM txnJournal p (readpast) 
+where txnTypecode <> '204'
+and cardcan = ?
+--and period_analysis_month = 201601
+--and period_Analysis >= 20160101 and period_Analysis < 20160104
+) nex
+ ON nex.rownum = Journal.rownum + 1 and nex.cardcan = Journal.cardcan
+where ((nex.cardctc -1 - Journal.cardctc > 0) or (nex.balancebefore != Journal.balanceafter))
+order by Journal.cardcan, journal.cardctc]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="24">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">8pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="245">
+            <property name="fontSize">15pt</property>
+            <text-property name="text">Discrepancy Report (CTC Mismatch)</text-property>
+        </label>
+        <data id="246">
+            <property name="fontSize">14pt</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Paramter_range</property>
+                    <text-property name="displayName">Paramter_range</text-property>
+                    <expression name="expression" type="javascript">vars["Paramter_range"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">Paramter_range</property>
+        </data>
+        <table id="248">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">cancard</property>
+                    <text-property name="displayName">cancard</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cancard"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TxnDateTime</property>
+                    <text-property name="displayName">TxnDateTime</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TxnDateTime"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">samctc</property>
+                    <text-property name="displayName">samctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["samctc"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">prev_ctc</property>
+                    <text-property name="displayName">prev_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prev_ctc"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">cardctc</property>
+                    <text-property name="displayName">cardctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cardctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">next_ctc</property>
+                    <text-property name="displayName">next_ctc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["next_ctc"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Period_Analysis_month</property>
+                    <text-property name="displayName">Period_Analysis_month</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Period_Analysis_month"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Period_Analysis</property>
+                    <text-property name="displayName">Period_Analysis</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Period_Analysis"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">diff_count</property>
+                    <text-property name="displayName">diff_count</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["diff_count"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">next_opening</property>
+                    <text-property name="displayName">next_opening</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["next_opening"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">amt_diff</property>
+                    <text-property name="displayName">amt_diff</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["amt_diff"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">txnNature</property>
+                    <text-property name="displayName">txnNature</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["txnNature"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TicketTypecode</property>
+                    <text-property name="displayName">TicketTypecode</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TicketTypecode"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">amt_diff_15</property>
+                    <text-property name="displayName">amt_diff_15</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["amt_diff_15"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">txamount</property>
+                    <text-property name="displayName">txamount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["txamount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">balanceafter</property>
+                    <text-property name="displayName">balanceafter</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["balanceafter"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="322"/>
+            <column id="323"/>
+            <column id="324"/>
+            <column id="325"/>
+            <column id="326">
+                <property name="textAlign">right</property>
+            </column>
+            <column id="327"/>
+            <column id="328"/>
+            <column id="329"/>
+            <column id="332"/>
+            <header>
+                <row id="249">
+                    <property name="height">0.40625in</property>
+                    <cell id="250">
+                        <label id="251">
+                            <text-property name="text">cancard</text-property>
+                        </label>
+                    </cell>
+                    <cell id="252">
+                        <label id="192">
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Transaction Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="254">
+                        <label id="196">
+                            <text-property name="text">CTC&#13;
+(Current)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="256">
+                        <label id="198">
+                            <text-property name="text">CTC&#13;
+(Next)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="258">
+                        <label id="200">
+                            <text-property name="text">Variance</text-property>
+                        </label>
+                    </cell>
+                    <cell id="260">
+                        <label id="336">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Tx Amount</text-property>
+                        </label>
+                    </cell>
+                    <cell id="262">
+                        <label id="338">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Balance&#13;
+Carry&#13;
+Forward</text-property>
+                        </label>
+                    </cell>
+                    <cell id="264">
+                        <label id="202">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Next Opening</text-property>
+                        </label>
+                    </cell>
+                    <cell id="270">
+                        <label id="243">
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Variance [Amount]</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="278">
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="279">
+                        <data id="280">
+                            <property name="resultSetColumn">cancard</property>
+                        </data>
+                    </cell>
+                    <cell id="281">
+                        <data id="282">
+                            <property name="resultSetColumn">TxnDateTime</property>
+                        </data>
+                    </cell>
+                    <cell id="283">
+                        <data id="288">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">cardctc</property>
+                        </data>
+                    </cell>
+                    <cell id="285">
+                        <data id="290">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">next_ctc</property>
+                        </data>
+                    </cell>
+                    <cell id="287">
+                        <data id="296">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <list-property name="highlightRules">
+                                <structure>
+                                    <property name="operator">ne</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">#FF0000</property>
+                                    <expression name="testExpr" type="javascript">row["diff_count"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">1</value>
+                                    </simple-property-list>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">diff_count</property>
+                        </data>
+                    </cell>
+                    <cell id="289">
+                        <data id="340">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">txamount</property>
+                        </data>
+                    </cell>
+                    <cell id="291">
+                        <data id="339">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">balanceafter</property>
+                        </data>
+                    </cell>
+                    <cell id="293">
+                        <data id="298">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">next_opening</property>
+                        </data>
+                    </cell>
+                    <cell id="299">
+                        <data id="300">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <list-property name="highlightRules">
+                                <structure>
+                                    <property name="operator">ne</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">#FF0000</property>
+                                    <expression name="testExpr" type="javascript">row["amt_diff"]</expression>
+                                    <simple-property-list name="value1">
+                                        <value type="javascript">0</value>
+                                    </simple-property-list>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">amt_diff</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="307">
+                    <cell id="308"/>
+                    <cell id="309"/>
+                    <cell id="310"/>
+                    <cell id="311"/>
+                    <cell id="312"/>
+                    <cell id="313"/>
+                    <cell id="314"/>
+                    <cell id="315"/>
+                    <cell id="318"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="Paramter_range">
+            <expression name="value" type="javascript">params["cardcan"].value</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

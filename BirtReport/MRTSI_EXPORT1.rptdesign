@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.97:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">MRTSI_CONNECTION.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="453">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">UNPACKDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">UNPACKDATE</text-property>
+                    <text-property name="heading">UNPACKDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">COMPANYCODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">COMPANYCODE</text-property>
+                    <text-property name="heading">COMPANYCODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">RouteCode</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">RouteCode</text-property>
+                    <text-property name="heading">RouteCode</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">REFERENCE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">REFERENCE</text-property>
+                    <text-property name="heading">REFERENCE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BusNO</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">BusNO</text-property>
+                    <text-property name="heading">BusNO</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">UNPACKDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">COMPANYCODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">RouteCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">REFERENCE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">BusNO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">UNPACKDATE</property>
+                    <property name="nativeName">UNPACKDATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">COMPANYCODE</property>
+                    <property name="nativeName">COMPANYCODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">RouteCode</property>
+                    <property name="nativeName">RouteCode</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">REFERENCE</property>
+                    <property name="nativeName">REFERENCE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">BusNO</property>
+                    <property name="nativeName">BusNO</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[
+SELECT F1.UNPACKDATE, MRTSI_SYSTEM_PARAMETER.COMPANYCODE, 
+MRTSI_LineROUTE_MAPPING.RouteCode, 
+SUBSTRING(UNPACKDATE,1,2) + SUBSTRING(UNPACKDATE,4,2) + SUBSTRING(UNPACKDATE,7,4) AS REFERENCE,
+MRTSI_BUS_MAPPING.BusNO FROM 
+(
+	SELECT CONVERT(VARCHAR,UnPackingDateTime,104) AS UNPACKDATE,  COUNT(*) AS COUNTER, debitTransaction.BusCode, debitTransaction.LineCode
+			,debitTransaction.TicketType
+			,SUM(debitTransaction.TxnAmount) AS AMOUNT
+			,SUM(debitTransaction.DiscountPercentage) AS DISCOUNT_AMOUNT
+			,CONVERT(VARCHAR,debitTransaction.UnPackingDateTime,104) as document_date
+	FROM DEBITTRANSACTION
+	WHERE CONVERT(VARCHAR,UnPackingDateTime,104) = '18.04.2016' 
+	gROUP BY debitTransaction.BUSCODE, 
+			 debitTransaction.LineCode, 
+				debitTransaction.TicketType,
+				CONVERT(VARCHAR,UnPackingDateTime,104)
+) F1, MRTSI_SYSTEM_PARAMETER, MRTSI_LineROUTE_MAPPING, MRTSI_BUS_MAPPING
+WHERE MRTSI_LineROUTE_MAPPING.LineCode = F1.LINECODE AND
+F1.BusCode = MRTSI_BUS_MAPPING.BusCode ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>UNPACKDATE</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>UNPACKDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>UNPACKDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>COMPANYCODE</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>4</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>COMPANYCODE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>COMPANYCODE</design:label>
+            <design:formattingHints>
+              <design:displaySize>4</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>RouteCode</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>RouteCode</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>RouteCode</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REFERENCE</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>8</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REFERENCE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REFERENCE</design:label>
+            <design:formattingHints>
+              <design:displaySize>8</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>BusNO</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>BusNO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>BusNO</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="438">
+            <column id="439"/>
+            <column id="440"/>
+            <column id="441"/>
+            <row id="442">
+                <cell id="443"/>
+                <cell id="444"/>
+                <cell id="445"/>
+            </row>
+        </grid>
+        <table id="454">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">UNPACKDATE</property>
+                    <text-property name="displayName">UNPACKDATE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["UNPACKDATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">COMPANYCODE</property>
+                    <text-property name="displayName">COMPANYCODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COMPANYCODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RouteCode</property>
+                    <text-property name="displayName">RouteCode</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RouteCode"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">REFERENCE</property>
+                    <text-property name="displayName">REFERENCE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["REFERENCE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">BusNO</property>
+                    <text-property name="displayName">BusNO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["BusNO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Group</property>
+                    <text-property name="displayName">RouteCode</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["BusNO"]+dataSetRow["RouteCode"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="483"/>
+            <column id="484"/>
+            <column id="485"/>
+            <column id="486"/>
+            <column id="487"/>
+            <header>
+                <row id="455">
+                    <cell id="456">
+                        <label id="457">
+                            <text-property name="text">UNPACKDATE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="458">
+                        <label id="459">
+                            <text-property name="text">COMPANYCODE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="460">
+                        <label id="461">
+                            <text-property name="text">RouteCode</text-property>
+                        </label>
+                    </cell>
+                    <cell id="462">
+                        <label id="463">
+                            <text-property name="text">REFERENCE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="464">
+                        <label id="465">
+                            <text-property name="text">BusNO</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="502">
+                <property name="groupName">Group_Bus</property>
+                <expression name="keyExpr" type="javascript">row["BusNO"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["BusNO"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="503">
+                        <cell id="504">
+                            <data id="515">
+                                <property name="resultSetColumn">BusNO</property>
+                            </data>
+                        </cell>
+                        <cell id="505"/>
+                        <cell id="506"/>
+                        <cell id="507"/>
+                        <cell id="508"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="509">
+                        <cell id="510"/>
+                        <cell id="511"/>
+                        <cell id="512"/>
+                        <cell id="513"/>
+                        <cell id="514"/>
+                    </row>
+                </footer>
+            </group>
+            <group id="488">
+                <property name="groupName">Group_Route</property>
+                <expression name="keyExpr" type="javascript">row["RouteCode"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["RouteCode"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="489">
+                        <cell id="490">
+                            <data id="501">
+                                <property name="resultSetColumn">Group</property>
+                            </data>
+                        </cell>
+                        <cell id="491"/>
+                        <cell id="492"/>
+                        <cell id="493"/>
+                        <cell id="494"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="495">
+                        <cell id="496"/>
+                        <cell id="497"/>
+                        <cell id="498"/>
+                        <cell id="499"/>
+                        <cell id="500"/>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="466">
+                    <cell id="467">
+                        <data id="468">
+                            <property name="resultSetColumn">UNPACKDATE</property>
+                        </data>
+                    </cell>
+                    <cell id="469">
+                        <data id="470">
+                            <property name="resultSetColumn">COMPANYCODE</property>
+                        </data>
+                    </cell>
+                    <cell id="471">
+                        <data id="472">
+                            <property name="resultSetColumn">RouteCode</property>
+                        </data>
+                    </cell>
+                    <cell id="473">
+                        <data id="474">
+                            <property name="resultSetColumn">REFERENCE</property>
+                        </data>
+                    </cell>
+                    <cell id="475">
+                        <data id="476">
+                            <property name="resultSetColumn">BusNO</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="477">
+                    <cell id="478"/>
+                    <cell id="479"/>
+                    <cell id="480"/>
+                    <cell id="481"/>
+                    <cell id="482"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

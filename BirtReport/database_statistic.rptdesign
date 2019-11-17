@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">5</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">blue.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="Sorting" id="487">
+            <property name="valueType">static</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">1</property>
+                    <property name="label">Table Name</property>
+                </structure>
+                <structure>
+                    <property name="value">2</property>
+                    <property name="label">Total Space</property>
+                </structure>
+                <structure>
+                    <property name="value">3</property>
+                    <property name="label">Total Used Space</property>
+                </structure>
+                <structure>
+                    <property name="value">4</property>
+                    <property name="label">Unused Space</property>
+                </structure>
+            </list-property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">false</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.61.240:1433;DatabaseName=NGLA15</property>
+            <property name="odaUser">aiden</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWlkZW4=</encrypted-property>
+            <property name="OdaConnProfileName">New BIRT JDBC Data Source</property>
+            <property name="OdaConnProfileStorePath">DB_CONNECTION240.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">TableName</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TableName</text-property>
+                    <text-property name="heading">TableName</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SchemaName</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SchemaName</text-property>
+                    <text-property name="heading">SchemaName</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">RowCounts</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">RowCounts</text-property>
+                    <text-property name="heading">RowCounts</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TotalSpaceKB</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TotalSpaceKB</text-property>
+                    <text-property name="heading">TotalSpaceKB</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">UsedSpaceKB</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">UsedSpaceKB</text-property>
+                    <text-property name="heading">UsedSpaceKB</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">UnusedSpaceKB</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">UnusedSpaceKB</text-property>
+                    <text-property name="heading">UnusedSpaceKB</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">TableName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">SchemaName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">RowCounts</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">TotalSpaceKB</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">UsedSpaceKB</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">UnusedSpaceKB</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">TableName</property>
+                    <property name="nativeName">TableName</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">SchemaName</property>
+                    <property name="nativeName">SchemaName</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">RowCounts</property>
+                    <property name="nativeName">RowCounts</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">TotalSpaceKB</property>
+                    <property name="nativeName">TotalSpaceKB</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">UsedSpaceKB</property>
+                    <property name="nativeName">UsedSpaceKB</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">UnusedSpaceKB</property>
+                    <property name="nativeName">UnusedSpaceKB</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+    t.NAME AS TableName,
+    s.Name AS SchemaName,
+    p.rows AS RowCounts,
+    SUM(a.total_pages) * 8 AS TotalSpaceKB, 
+    SUM(a.used_pages) * 8 AS UsedSpaceKB, 
+    (SUM(a.total_pages) - SUM(a.used_pages)) * 8 AS UnusedSpaceKB
+FROM 
+    sys.tables t
+INNER JOIN      
+    sys.indexes i ON t.OBJECT_ID = i.object_id
+INNER JOIN 
+    sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id
+INNER JOIN 
+    sys.allocation_units a ON p.partition_id = a.container_id
+LEFT OUTER JOIN 
+    sys.schemas s ON t.schema_id = s.schema_id
+WHERE 
+    t.NAME NOT LIKE 'dt%' 
+    AND t.is_ms_shipped = 0
+    AND i.OBJECT_ID > 255 
+GROUP BY 
+    t.Name, s.Name, p.Rows
+ORDER BY 
+    t.Name]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUPLICATION COUNT</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUPLICATION COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUPLICATION COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCAN</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCAN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCAN</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CARDCTC</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CARDCTC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CARDCTC</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="438">
+            <column id="439"/>
+            <column id="440"/>
+            <column id="441"/>
+            <row id="442">
+                <cell id="443">
+                    <data id="95">
+                        <property name="fontFamily">"Calibri"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">#000080</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">REPORTNAME</property>
+                                <text-property name="displayName">REPORTNAME</text-property>
+                                <expression name="expression" type="javascript">vars["REPORTNAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">REPORTNAME</property>
+                    </data>
+                </cell>
+                <cell id="444"/>
+                <cell id="445"/>
+            </row>
+        </grid>
+        <table id="493">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">TableName</property>
+                    <text-property name="displayName">TableName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TableName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SchemaName</property>
+                    <text-property name="displayName">SchemaName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SchemaName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RowCounts</property>
+                    <text-property name="displayName">RowCounts</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RowCounts"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TotalSpaceKB</property>
+                    <text-property name="displayName">TotalSpaceKB</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TotalSpaceKB"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">UsedSpaceKB</property>
+                    <text-property name="displayName">UsedSpaceKB</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["UsedSpaceKB"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">UnusedSpaceKB</property>
+                    <text-property name="displayName">UnusedSpaceKB</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["UnusedSpaceKB"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="527">
+                <property name="textAlign">left</property>
+            </column>
+            <column id="528">
+                <property name="textAlign">left</property>
+            </column>
+            <column id="529">
+                <property name="textAlign">right</property>
+            </column>
+            <column id="530">
+                <property name="textAlign">right</property>
+            </column>
+            <column id="531">
+                <property name="textAlign">right</property>
+            </column>
+            <column id="532">
+                <property name="textAlign">right</property>
+            </column>
+            <header>
+                <row id="494">
+                    <cell id="495">
+                        <label id="496">
+                            <text-property name="text">TableName</text-property>
+                        </label>
+                    </cell>
+                    <cell id="497">
+                        <label id="498">
+                            <text-property name="text">SchemaName</text-property>
+                        </label>
+                    </cell>
+                    <cell id="499">
+                        <label id="500">
+                            <text-property name="text">RowCounts</text-property>
+                        </label>
+                    </cell>
+                    <cell id="501">
+                        <label id="502">
+                            <text-property name="text">TotalSpaceKB</text-property>
+                        </label>
+                    </cell>
+                    <cell id="503">
+                        <label id="504">
+                            <text-property name="text">UsedSpaceKB</text-property>
+                        </label>
+                    </cell>
+                    <cell id="505">
+                        <label id="506">
+                            <text-property name="text">UnusedSpaceKB</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="507">
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">eq</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <expression name="testExpr" type="javascript">row.__rownum%2</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">1</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="508">
+                        <data id="509">
+                            <property name="resultSetColumn">TableName</property>
+                        </data>
+                    </cell>
+                    <cell id="510">
+                        <data id="511">
+                            <property name="resultSetColumn">SchemaName</property>
+                        </data>
+                    </cell>
+                    <cell id="512">
+                        <data id="513">
+                            <property name="resultSetColumn">RowCounts</property>
+                        </data>
+                    </cell>
+                    <cell id="514">
+                        <data id="515">
+                            <property name="resultSetColumn">TotalSpaceKB</property>
+                        </data>
+                    </cell>
+                    <cell id="516">
+                        <data id="517">
+                            <property name="resultSetColumn">UsedSpaceKB</property>
+                        </data>
+                    </cell>
+                    <cell id="518">
+                        <data id="519">
+                            <property name="resultSetColumn">UnusedSpaceKB</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="520">
+                    <cell id="521"/>
+                    <cell id="522"/>
+                    <cell id="523"/>
+                    <cell id="524"/>
+                    <cell id="525"/>
+                    <cell id="526"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="REPORTNAME">
+            <expression name="value" type="javascript">"Database Table Size Summary"</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>
